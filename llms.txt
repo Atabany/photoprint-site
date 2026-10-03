@@ -1,0 +1,25 @@
+# Photo Print: Size & Layout
+
+> iPhone and iPad app for printing photos at exact physical sizes. Official App Store listing: https://apps.apple.com/app/id6808903369
+
+## Product facts
+- iOS / iPadOS 17 or later. AirPrint or PDF output.
+- Photo sizes in inches, centimetres and millimetres. A4, US Letter and 4 × 6 paper.
+- Photos that cannot fit are reported rather than shrunk.
+- First completed output and three saved layouts included. Optional one-time Pro purchase for unlimited outputs, unlimited layouts and saved page setups. Regional price is shown in the app; no subscription.
+- Photos stay on the device. Purchases use Apple / RevenueCat; the other-apps section can query Apple's catalogue.
+- ID and passport sizing and a head-size guide; no official compliance verification or acceptance guarantee.
+
+## Official pages
+- [Product](https://atabany.github.io/photoprint-site/)
+- [About the app and author](https://atabany.github.io/photoprint-site/about.html)
+- [Support](https://atabany.github.io/photoprint-site/support.html)
+- [Privacy](https://atabany.github.io/photoprint-site/privacy.html)
+
+## Printing guides
+- [photo printed wrong size](https://atabany.github.io/photoprint-site/photo-printed-wrong-size.html)
+- [print 1x1 id photos iphone](https://atabany.github.io/photoprint-site/print-1x1-id-photos-iphone.html)
+- [print 2x2 photos iphone](https://atabany.github.io/photoprint-site/print-2x2-photos-iphone.html)
+- [print 4x6 photo exact size iphone](https://atabany.github.io/photoprint-site/print-4x6-photo-exact-size-iphone.html)
+- [print multiple photos on one page](https://atabany.github.io/photoprint-site/print-multiple-photos-on-one-page.html)
+- [print passport photos at home](https://atabany.github.io/photoprint-site/print-passport-photos-at-home.html)
