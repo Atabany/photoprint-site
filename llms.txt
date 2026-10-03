@@ -16,10 +16,16 @@
 - [Support](https://usephotoprint.com/support.html)
 - [Privacy](https://usephotoprint.com/privacy.html)
 
-## Printing guides
-- [photo printed wrong size](https://usephotoprint.com/photo-printed-wrong-size.html)
-- [print 1x1 id photos iphone](https://usephotoprint.com/print-1x1-id-photos-iphone.html)
-- [print 2x2 photos iphone](https://usephotoprint.com/print-2x2-photos-iphone.html)
-- [print 4x6 photo exact size iphone](https://usephotoprint.com/print-4x6-photo-exact-size-iphone.html)
-- [print multiple photos on one page](https://usephotoprint.com/print-multiple-photos-on-one-page.html)
-- [print passport photos at home](https://usephotoprint.com/print-passport-photos-at-home.html)
+## Printing guides and tools
+- [AirPrint photo printing: missing printer, margins and paper](https://usephotoprint.com/airprint-photo-printing-troubleshooting.html)
+- [Photo print resolution: pixels, PPI and cropping](https://usephotoprint.com/photo-print-resolution-ppi.html)
+- [Photo Printed the Wrong Size? Causes and Fixes (iPhone, PDF, Printer) — Photo Print](https://usephotoprint.com/photo-printed-wrong-size.html)
+- [Photo size calculator: inches, mm and print pixels](https://usephotoprint.com/photo-size-calculator.html)
+- [How to Print 1 × 1 Inch ID Photos from iPhone](https://usephotoprint.com/print-1x1-id-photos-iphone.html)
+- [How to Print 2 × 2 Inch Photos from iPhone](https://usephotoprint.com/print-2x2-photos-iphone.html)
+- [Print 35 × 45 mm photos from iPhone](https://usephotoprint.com/print-35x45-mm-photos-iphone.html)
+- [How to Print a 4×6 Photo at Exact Size from iPhone — Photo Print](https://usephotoprint.com/print-4x6-photo-exact-size-iphone.html)
+- [How to Print Multiple Photos on One Page from iPhone (A4 or Letter) — Photo Print](https://usephotoprint.com/print-multiple-photos-on-one-page.html)
+- [How to Print Passport & ID Photos at Home from iPhone (2×2 in, 35×45 mm) — Photo Print](https://usephotoprint.com/print-passport-photos-at-home.html)
+- [Print a photo PDF at actual size: home or print shop](https://usephotoprint.com/print-photo-pdf-actual-size.html)
+- [Print wallet-size photos from iPhone](https://usephotoprint.com/print-wallet-photos-iphone.html)

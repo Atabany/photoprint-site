@@ -12,7 +12,9 @@ class Page(HTMLParser):
   super().__init__();self.ids=set();self.links=[];self.assets=[];self.h1=0;self.canonical=[];self.description=[];self.title='';self.in_title=False;self.in_json=False;self.buffer='';self.data=[]
  def handle_starttag(self,tag,attrs):
   a=dict(attrs)
-  if a.get('id'):self.ids.add(a['id'])
+  if a.get('id'):
+   if a['id'] in self.ids:errors.append(f'duplicate HTML id: {a["id"]}')
+   self.ids.add(a['id'])
   if tag=='a' and a.get('href'):self.links.append(a['href'])
   if tag in ['img','script','source'] and a.get('src'):self.assets.append(a['src'])
   if tag=='video' and a.get('poster'):self.assets.append(a['poster'])
@@ -35,6 +37,8 @@ for p in ROOT.glob('*.html'):
  try:q.feed(p.read_text())
  except Exception as e:errors.append(f'{p.name}: parse error {e}')
  pages[p.name]=q
+titles=[q.title for q in pages.values()]
+if len(set(titles))!=len(titles):errors.append('duplicate page titles')
 for name,q in pages.items():
  def require(condition,message):
   if not condition:errors.append(f'{name}: {message}')
@@ -47,17 +51,17 @@ for name,q in pages.items():
  for raw in q.links+q.assets:
   u=urlsplit(raw)
   if u.scheme or u.netloc:continue
-  target=unquote(u.path) or name
+  target=unquote(u.path).lstrip('/') or name
   p=ROOT/target
   require(p.exists(),f'missing local target {raw}')
   if u.fragment and target in pages:require(unquote(u.fragment) in pages[target].ids,f'missing anchor {raw}')
  for raw in q.assets: require(not urlsplit(raw).netloc,'assets must be self-hosted')
  urls={x.text for x in ET.parse(ROOT/'sitemap.xml').getroot().iter('{http://www.sitemaps.org/schemas/sitemap/0.9}loc')}
- require(expected in urls,'missing sitemap entry')
+ if name!='404.html':require(expected in urls,'missing sitemap entry')
 for url in urls:
  path=url.removeprefix(BASE) or 'index.html'
  if path not in pages:errors.append(f'sitemap points to missing page: {url}')
-if len(urls)!=len(pages):errors.append('sitemap and page counts differ')
+if len(urls)!=len(pages)-('404.html' in pages):errors.append('sitemap and page counts differ')
 for url in re.findall(r'\]\((https://[^)]+)\)',(ROOT/'llms.txt').read_text()):
  if url.startswith(BASE) and (url.removeprefix(BASE) or 'index.html') not in pages:errors.append(f'llms.txt missing page {url}')
 if errors:

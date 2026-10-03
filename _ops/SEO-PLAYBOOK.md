@@ -54,3 +54,29 @@ Prioritize genuinely different questions; avoid near-duplicate country doorway p
 5. AirPrint paper/margin troubleshooting: real printer behaviour and test sheet after its feature ships.
 
 Research current official documentation where needed, write one useful guide, link from the guide index and relevant pages, update matching JSON-LD/llms/sitemap, run python3 _ops/validate.py, visually inspect desktop/mobile, publish and verify HTTP responses. Add translations only after a language review and valid hreflang/canonicals; avoid publishing unreviewed bulk translations.
+
+## Growth expansion — 2026-10-03
+
+Published five distinct practical guides: 35×45 mm, wallet photos, printing PDFs at actual size,
+print resolution/PPI and AirPrint troubleshooting. Added a local-only size/pixel calculator
+with server-rendered conversion chart, worked examples and links into the app. Eleven guides
+and seventeen indexable pages; custom 404 recovery page is noindex and excluded from sitemap.
+Guides have table-of-contents anchors, breadcrumbs, real author links, correction/support links,
+related reading and matching BreadcrumbList data. Shared social preview metadata added.
+Claude-SearchBot and Claude-User explicitly allowed alongside OpenAI bots; wildcards already
+allowed them. Permission to crawl does not prove an actual visit or recommendation.
+
+Google sitemap changed to Success with 11 discovered pages before this expansion. Homepage
+live test and indexing request passed earlier. Expanded sitemap is published for discovery;
+indexing and rankings still require time. Bing registration was rate-limited, retry later.
+
+Sources checked: Apple AirPrint https://support.apple.com/en-us/109349 ; Adobe Actual size
+https://helpx.adobe.com/acrobat/desktop/print-documents/set-up-and-print-pdfs/page-size.html ;
+Anthropic crawler roles https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler .
+Resolution labels checked against PhotoPrint/Domain/PrintQuality.swift. Pixel examples are
+calculated from exact inches/mm and rounded up, after crop. No ID acceptance claims.
+
+Validation: calculator 35×45 mm at 300 PPI → 414×532 pixels; 4×6 in at 200 PPI →
+800×1200 pixels; negative values blocked. Desktop/mobile inspected with no horizontal overflow.
+Run `_ops/build_guides.py`, then `_ops/enrich_site.py`, then `_ops/validate.py` when rebuilding.
+Original six guides remain hand-authored; the generator preserves their directory entries.

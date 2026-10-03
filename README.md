@@ -3,7 +3,7 @@
 Static GitHub Pages site for Photo Print: Size & Layout. Production: https://usephotoprint.com/ . Cloudflare-registered domain, GitHub Pages hosting, HTTPS enforced. Legacy Pages links redirect.
 
 - Home: animated print-studio demo, real app screens, official Apple download badge, use cases, honest free/Pro comparison and FAQ.
-- Six printing guides, author/about page, support and privacy.
+- Eleven printing guides and a local-only size/resolution calculator, author/about page, support and privacy.
 - Shared assets/style.css; the hero motion script pauses offscreen/in background and respects reduced motion/data saving. Core content and links work without JavaScript.
 - SEO: canonical URLs, titles/descriptions, matching JSON-LD, internal links, sitemap and an optional llms.txt navigation file. See _ops/SEO-PLAYBOOK.md for source references, domain migration, attribution limitations and next topics.
 - privacy.html is generated from PhotoPrint/docs/PRIVACY_POLICY.md with `python3 tools/build_site.py ../photoprint-site` in the app checkout. Change the policy at its source; shared visual design is preserved by the updated generator.
@@ -18,3 +18,5 @@ Hero animation/poster: PhotoPrint/Resources/Onboarding/onboarding-loop-light.mp4
 App Store badge: Apple's original SVG from https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg, reused unmodified from the owner's Photo Cleaner site.
 
 The site repo was initially clean. Changes to the iOS app occurring in parallel are outside this website task.
+
+The optional guide rebuild pipeline is `_ops/build_guides.py` then `_ops/enrich_site.py`; validate afterward.
