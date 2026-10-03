@@ -59,3 +59,7 @@ p=ROOT/'robots.txt';s=p.read_text()
 for bot in ['Claude-SearchBot','Claude-User']:
  if bot not in s:s=s.replace('Sitemap:',f'User-agent: {bot}\nAllow: /\n\nSitemap:')
 p.write_text(s)
+
+# Campaign parameters are reapplied after regenerating static pages.
+import subprocess,sys
+subprocess.run([sys.executable,str(ROOT/"_ops/appstore_campaign.py")],check=True)

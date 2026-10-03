@@ -80,3 +80,16 @@ Validation: calculator 35×45 mm at 300 PPI → 414×532 pixels; 4×6 in at 200 
 800×1200 pixels; negative values blocked. Desktop/mobile inspected with no horizontal overflow.
 Run `_ops/build_guides.py`, then `_ops/enrich_site.py`, then `_ops/validate.py` when rebuilding.
 Original six guides remain hand-authored; the generator preserves their directory entries.
+
+Official campaign provider token **127826363** was generated in App Store Connect for
+Photo Print on 2026-10-03 (website-home link). Download links now use this real pt token,
+mt=8 and descriptive ct tags under 30 characters. `_ops/appstore_campaign.py` reapplies
+them after guide rebuilding. Identity/schema URLs remain plain App Store URLs. Apple
+requires at least five first-time downloads from distinct Apple Accounts for campaign
+reporting and may delay report availability; blank reports do not mean zero clicks.
+Source: https://developer.apple.com/help/app-store-connect/view-app-analytics/manage-campaigns/
+
+Weekly thread heartbeat `photo-print-website-growth` is active (Mondays at 10:00 local time).
+It checks health/discovery, pending Bing setup, available aggregate metrics and prioritizes
+useful improvements using evidence; it stays quiet on unchanged/non-actionable states.
+No paid advertising, outreach, app release or new agreement is authorized by that heartbeat.
