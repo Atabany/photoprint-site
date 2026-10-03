@@ -34,7 +34,7 @@ Completed:
 - Google Search Console Domain property verified by TXT. Sitemap submitted; initial processing says "Couldn't fetch" immediately after certificate issuance. Public sitemap returns HTTPS 200 application/xml; Google may still have cached pre-registration DNS. Recheck/resubmit after propagation. This is not a successful indexation claim.
 - App Legal URLs and Settings website/guides buttons implemented; simulator build/run passed. App Store marketing/support AND privacy URL edits rejected with 409 state errors on live 1.4.0; change in next editable release. Existing URLs redirect correctly.
 
-Bing manual site addition was attempted on 2026-10-03, but rejected with "you have sent too many requests to us recently". No further retries during this session; retry after rate limit clears. Google homepage live test passed (URL available to Google, page can be indexed) and indexing request was accepted into the priority crawl queue. Two guide inspections remain a follow-up; all eleven guide/site pages return HTTPS 200. No ranking or recommendation guarantees.
+Bing manual site addition was attempted on 2026-10-03, but rejected with "you have sent too many requests to us recently". No further retries during this session; retry after rate limit clears. Google homepage live test passed (URL available to Google, page can be indexed) and indexing request was accepted into the priority crawl queue. Priority indexing requests accepted for the 35×45 mm and true-size PDF guides; all eleven guide/site pages return HTTPS 200. No ranking or recommendation guarantees.
 
 ## Measure results
 
@@ -101,3 +101,13 @@ links. Bing retry remains rate-limited. Campaign reports currently have insuffic
 
 Google accepted a priority indexing request for the new size calculator. This is a crawl
 queue request, not confirmation that it is indexed or ranked.
+
+The about page now has a visible official product-facts table and links to existing app
+artwork/screens, with AboutPage/Person entity metadata. No reviews or endorsements invented.
+
+Google accepted priority indexing requests for the calculator, 35×45 mm guide and true-size
+PDF guide. Actual indexing/ranking is still pending.
+
+GitHub Actions now runs static site validation on pushes and pull requests, with read-only
+permissions and a pinned official checkout action. It checks metadata, links, anchors,
+assets, sitemap coverage, duplicate IDs/titles, search crawler access and campaign tags.

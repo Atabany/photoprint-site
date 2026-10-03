@@ -64,6 +64,20 @@ for url in urls:
 if len(urls)!=len(pages)-('404.html' in pages):errors.append('sitemap and page counts differ')
 for url in re.findall(r'\]\((https://[^)]+)\)',(ROOT/'llms.txt').read_text()):
  if url.startswith(BASE) and (url.removeprefix(BASE) or 'index.html') not in pages:errors.append(f'llms.txt missing page {url}')
+# Search crawlers must be able to access the guide directory.
+from urllib.robotparser import RobotFileParser
+policy=RobotFileParser();policy.parse((ROOT/'robots.txt').read_text().splitlines())
+for bot in ['Googlebot','bingbot','OAI-SearchBot','Claude-SearchBot','Claude-User']:
+ if not policy.can_fetch(bot,BASE+'guides.html'):errors.append(f'robots blocks {bot}')
+# Download links require the real account token and an Apple-supported campaign label.
+from urllib.parse import parse_qs
+for name,q in pages.items():
+ for raw in q.links:
+  u=urlsplit(raw)
+  if u.hostname=='apps.apple.com' and '6808903369' in u.path:
+   params=parse_qs(u.query)
+   if params.get('pt')!=['127826363'] or not 0<len(params.get('ct',[''])[0])<=30:
+    errors.append(f'{name}: invalid App Store campaign link')
 if errors:
  print('\n'.join(errors));raise SystemExit(1)
 print(f'PASS: {len(pages)} pages; links, anchors, local assets, canonical URLs, descriptions, JSON-LD, sitemap and llms.txt')
