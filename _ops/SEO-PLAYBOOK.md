@@ -17,7 +17,7 @@ Use static readable HTML, a direct answer near the beginning, descriptive title/
 
 OAI-SearchBot handles ChatGPT search; GPTBot controls possible training use separately. Allow crawling, but never promise inclusion or recommendations. llms.txt is an optional navigation aid, not a ranking mechanism or supported submission method.
 
-Important: the project is currently on a GitHub Pages subpath. robots.txt at /photoprint-site/robots.txt is NOT the origin-wide crawler policy; robots are read from https://atabany.github.io/robots.txt (404 when checked). The missing origin policy does not block crawling. After the custom-domain move, our file will be at /robots.txt and become effective.
+The official domain serves robots.txt at /robots.txt. All site content is crawlable, including by OAI-SearchBot. DNS records are DNS-only; no Cloudflare proxy challenge is placed in front of crawlers.
 
 Sources checked 2026-10-03:
 - https://developers.google.com/search/docs/appearance/ai-features
@@ -25,15 +25,16 @@ Sources checked 2026-10-03:
 
 ## Domain decision and migration
 
-Chosen: usephotoprint.com. Verisign RDAP returned 404 on 2026-10-03; this is not a registrar reservation or price quote. photoprint.com, photoprint.app, getphotoprint.com and photoprintstudio.com were registered. Do not buy an aftermarket domain based on keywords alone; get a verified quote first.
+Official domain: https://usephotoprint.com/, registered by owner on 2026-10-03 through Cloudflare ($10.46 for one year; auto-renew enabled). photoprint.com and photoprint.app were already registered.
 
-Pending domain registration/payment by the owner. Do not add CNAME, switch canonical URLs, or publish DNS instructions as completed before ownership and DNS are confirmed.
+Completed:
+- GitHub Pages verified domain ownership before connection. Four DNS-only A records (185.199.108.153 through 185.199.111.153) and www CNAME to atabany.github.io.
+- Custom domain set, all metadata/canonicals/sitemap/robots/llms/validator/privacy generator migrated.
+- Initial DNS cache delay resolved. HTTPS provisioning needed one restart using GitHub's documented remove/re-add recovery step. Certificate approved; HTTPS enforcement enabled; ordinary HTTPS returns 200, HTTP and www redirect to canonical HTTPS, legacy Pages guide URLs redirect to matching paths.
+- Google Search Console Domain property verified by TXT. Sitemap submitted; initial processing says "Couldn't fetch" immediately after certificate issuance. Public sitemap returns HTTPS 200 application/xml; Google may still have cached pre-registration DNS. Recheck/resubmit after propagation. This is not a successful indexation claim.
+- App Legal URLs and Settings website/guides buttons implemented; simulator build/run passed. App Store marketing/support AND privacy URL edits rejected with 409 state errors on live 1.4.0; change in next editable release. Existing URLs redirect correctly.
 
-After registration:
-1. Verify the domain in GitHub Pages settings; add verification TXT and the Pages DNS records shown there. Add the custom domain/CNAME, then confirm HTTPS issuance and enforce HTTPS.
-2. Update canonical/og URLs, JSON-LD IDs/URLs, sitemap, robots sitemap, llms.txt, validator BASE and app privacy-generator base. Keep guide filenames. Confirm old Pages URLs redirect permanently to matching new paths.
-3. Verify a Google Search Console Domain property with DNS, submit /sitemap.xml and inspect the home page plus two guides. Add/import to Bing Webmaster Tools and submit the sitemap. Record actual status; do not call a submitted or inaccessible sitemap successfully indexed.
-4. Update app Legal URLs and App Store marketing/support/privacy URLs when the listing allows edits; keep the existing URLs redirecting.
+Bing manual site addition was attempted on 2026-10-03, but rejected with "you have sent too many requests to us recently". No further retries during this session; retry after rate limit clears. Google URL inspection is pending. No ranking or recommendation guarantees.
 
 ## Measure results
 

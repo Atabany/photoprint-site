@@ -1,6 +1,6 @@
 # Photo Print website
 
-Static GitHub Pages site for Photo Print: Size & Layout. Production: https://atabany.github.io/photoprint-site/ . Chosen future domain: usephotoprint.com (registration pending).
+Static GitHub Pages site for Photo Print: Size & Layout. Production: https://usephotoprint.com/ . Cloudflare-registered domain, GitHub Pages hosting, HTTPS enforced. Legacy Pages links redirect.
 
 - Home: animated print-studio demo, real app screens, official Apple download badge, use cases, honest free/Pro comparison and FAQ.
 - Six printing guides, author/about page, support and privacy.
