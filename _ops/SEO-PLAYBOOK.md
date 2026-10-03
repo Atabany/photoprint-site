@@ -34,7 +34,7 @@ Completed:
 - Google Search Console Domain property verified by TXT. Sitemap submitted; initial processing says "Couldn't fetch" immediately after certificate issuance. Public sitemap returns HTTPS 200 application/xml; Google may still have cached pre-registration DNS. Recheck/resubmit after propagation. This is not a successful indexation claim.
 - App Legal URLs and Settings website/guides buttons implemented; simulator build/run passed. App Store marketing/support AND privacy URL edits rejected with 409 state errors on live 1.4.0; change in next editable release. Existing URLs redirect correctly.
 
-Bing manual site addition was attempted on 2026-10-03, but rejected with "you have sent too many requests to us recently". No further retries during this session; retry after rate limit clears. Google URL inspection is pending. No ranking or recommendation guarantees.
+Bing manual site addition was attempted on 2026-10-03, but rejected with "you have sent too many requests to us recently". No further retries during this session; retry after rate limit clears. Google homepage live test passed (URL available to Google, page can be indexed) and indexing request was accepted into the priority crawl queue. Two guide inspections remain a follow-up; all eleven guide/site pages return HTTPS 200. No ranking or recommendation guarantees.
 
 ## Measure results
 
