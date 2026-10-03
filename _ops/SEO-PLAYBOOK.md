@@ -40,9 +40,9 @@ Bing manual site addition was attempted on 2026-10-03, but rejected with "you ha
 
 Baseline dated 2026-10-01: 78 first-time downloads, 28 ChatGPT app referrals, ~6.5–7.3% download-to-paid. Source: app repo docs/kb/growth.md. US base Pro changed to $7.99 on 2026-10-02 with selected emerging-market prices preserved. Do not attribute every later sales change to the website.
 
-Before campaign claims: create website campaign links in App Store Connect and replace badge links with the resulting valid provider token (pt) plus campaign tag (ct). Current ct/mt links are prepared labels only; they are NOT verified campaign attribution. Never invent pt or promise per-page conversion reports without it.
+Official App Store provider token and per-page campaign tags are now configured (see expansion record). Campaign results require Apple’s thresholds and processing time; do not equate absent reports with zero traffic.
 
-Weekly review: Search Console impressions/clicks/query/position, Bing discovery, App Store web/app referrals and first-time downloads, RevenueCat proceeds/refunds/conversion. Judge experiments over comparable windows, noting the pricing change and small samples. No automatic recurring job is scheduled by this task.
+Weekly review: Search Console impressions/clicks/query/position, Bing discovery, App Store web/app referrals and first-time downloads, RevenueCat proceeds/refunds/conversion. Judge experiments over comparable windows, noting the pricing change and small samples. Weekly growth heartbeat is active; see the dated expansion record below.
 
 ## Content queue
 
@@ -93,3 +93,11 @@ Weekly thread heartbeat `photo-print-website-growth` is active (Mondays at 10:00
 It checks health/discovery, pending Bing setup, available aggregate metrics and prioritizes
 useful improvements using evidence; it stays quiet on unchanged/non-actionable states.
 No paid advertising, outreach, app release or new agreement is authorized by that heartbeat.
+
+Final checks: expanded sitemap accepted and reports **Success, 17 discovered pages**. All 17
+indexable URLs return HTTPS 200. Simulated OpenAI/Claude search/user-agent requests return
+200 (not proof of real crawler visits). Nested missing URL returns proper 404 and recovery
+links. Bing retry remains rate-limited. Campaign reports currently have insufficient data.
+
+Google accepted a priority indexing request for the new size calculator. This is a crawl
+queue request, not confirmation that it is indexed or ranked.
