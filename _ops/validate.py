@@ -5,7 +5,7 @@ from html.parser import HTMLParser
 from urllib.parse import urlsplit,unquote
 import json,re,xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
-BASE='https://atabany.github.io/photoprint-site/'
+BASE='https://usephotoprint.com/'
 errors=[]
 class Page(HTMLParser):
  def __init__(self):

@@ -11,15 +11,15 @@
 - ID and passport sizing and a head-size guide; no official compliance verification or acceptance guarantee.
 
 ## Official pages
-- [Product](https://atabany.github.io/photoprint-site/)
-- [About the app and author](https://atabany.github.io/photoprint-site/about.html)
-- [Support](https://atabany.github.io/photoprint-site/support.html)
-- [Privacy](https://atabany.github.io/photoprint-site/privacy.html)
+- [Product](https://usephotoprint.com/)
+- [About the app and author](https://usephotoprint.com/about.html)
+- [Support](https://usephotoprint.com/support.html)
+- [Privacy](https://usephotoprint.com/privacy.html)
 
 ## Printing guides
-- [photo printed wrong size](https://atabany.github.io/photoprint-site/photo-printed-wrong-size.html)
-- [print 1x1 id photos iphone](https://atabany.github.io/photoprint-site/print-1x1-id-photos-iphone.html)
-- [print 2x2 photos iphone](https://atabany.github.io/photoprint-site/print-2x2-photos-iphone.html)
-- [print 4x6 photo exact size iphone](https://atabany.github.io/photoprint-site/print-4x6-photo-exact-size-iphone.html)
-- [print multiple photos on one page](https://atabany.github.io/photoprint-site/print-multiple-photos-on-one-page.html)
-- [print passport photos at home](https://atabany.github.io/photoprint-site/print-passport-photos-at-home.html)
+- [photo printed wrong size](https://usephotoprint.com/photo-printed-wrong-size.html)
+- [print 1x1 id photos iphone](https://usephotoprint.com/print-1x1-id-photos-iphone.html)
+- [print 2x2 photos iphone](https://usephotoprint.com/print-2x2-photos-iphone.html)
+- [print 4x6 photo exact size iphone](https://usephotoprint.com/print-4x6-photo-exact-size-iphone.html)
+- [print multiple photos on one page](https://usephotoprint.com/print-multiple-photos-on-one-page.html)
+- [print passport photos at home](https://usephotoprint.com/print-passport-photos-at-home.html)

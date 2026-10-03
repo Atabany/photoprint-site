@@ -10,4 +10,4 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
-Sitemap: https://atabany.github.io/photoprint-site/sitemap.xml
+Sitemap: https://usephotoprint.com/sitemap.xml
