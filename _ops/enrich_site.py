@@ -43,12 +43,13 @@ for name,slugs in links.items():
  if 'class="more-guides"' not in s:
   links_html='<nav class="more-guides" aria-label="More printing help"><ul>'+''.join('<li><a href="'+slug+'.html">'+html.unescape(re.search('<title>(.*?)</title>',(ROOT/(slug+'.html')).read_text())[1])+'</a></li>' for slug in slugs)+'</ul></nav>'
   s=s.replace('<aside class="guide-cta">',links_html+'<aside class="guide-cta">');p.write_text(s)
-# Sitemap lastmod reflects today's substantive content/metadata work.
+# Preserve previously recorded substantive modification dates on metadata-only rebuilds.
 ns='http://www.sitemaps.org/schemas/sitemap/0.9';ET.register_namespace('',ns)
+existing_dates={u.find('{'+ns+'}loc').text:u.findtext('{'+ns+'}lastmod') for u in ET.parse(ROOT/'sitemap.xml').getroot()}
 root=ET.Element('{'+ns+'}urlset')
 for p in sorted(ROOT.glob('*.html')):
  if p.name=='404.html':continue
- u=ET.SubElement(root,'{'+ns+'}url');ET.SubElement(u,'{'+ns+'}loc').text=BASE+('' if p.name=='index.html' else p.name);ET.SubElement(u,'{'+ns+'}lastmod').text='2026-10-03'
+ u=ET.SubElement(root,'{'+ns+'}url');ET.SubElement(u,'{'+ns+'}loc').text=BASE+('' if p.name=='index.html' else p.name);ET.SubElement(u,'{'+ns+'}lastmod').text=existing_dates.get(BASE+('' if p.name=='index.html' else p.name),'2026-10-05')
 ET.indent(root,space='  ');ET.ElementTree(root).write(ROOT/'sitemap.xml',encoding='UTF-8',xml_declaration=True)
 # Human-readable guide titles in the optional navigation file.
 llms_path=ROOT/'llms.txt';s=llms_path.read_text().split('## Printing guides')[0]+'## Printing guides and tools\n'

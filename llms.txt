@@ -10,6 +10,8 @@
 - Photos stay on the device. Purchases use Apple / RevenueCat; the other-apps section can query Apple's catalogue.
 - ID and passport sizing and a head-size guide; no official compliance verification or acceptance guarantee.
 
+- Free printer test-sheet PDFs are available on the website. The in-app printer check is coming in 1.4.1, pending Apple review.
+
 ## Official pages
 - [Product](https://usephotoprint.com/)
 - [About the app and author](https://usephotoprint.com/about.html)
@@ -28,4 +30,5 @@
 - [How to Print Multiple Photos on One Page from iPhone (A4 or Letter) — Photo Print](https://usephotoprint.com/print-multiple-photos-on-one-page.html)
 - [How to Print Passport & ID Photos at Home from iPhone (2×2 in, 35×45 mm) — Photo Print](https://usephotoprint.com/print-passport-photos-at-home.html)
 - [Print a photo PDF at actual size: home or print shop](https://usephotoprint.com/print-photo-pdf-actual-size.html)
+- [Free printer test sheet: check actual size and margins](https://usephotoprint.com/print-printer-test-sheet.html)
 - [Print wallet-size photos from iPhone](https://usephotoprint.com/print-wallet-photos-iphone.html)

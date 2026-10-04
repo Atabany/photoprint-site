@@ -111,3 +111,11 @@ PDF guide. Actual indexing/ranking is still pending.
 GitHub Actions now runs static site validation on pushes and pull requests, with read-only
 permissions and a pinned official checkout action. It checks metadata, links, anchors,
 assets, sitemap coverage, duplicate IDs/titles, search crawler access and campaign tags.
+
+## 2026-10-05 — printer-check release website update
+
+Existing domain and GitHub Pages hosting retained. Added a homepage feature section, real 1.4.1 screenshot, and `print-printer-test-sheet.html` with free app-generated PDFs for A4, US Letter and 4 × 6 paper. Linked from support, wrong-size, AirPrint and actual-size PDF guides, the guide directory, sitemap and llms.txt. In-app feature explicitly marked pending Apple review; website downloads are available immediately. No paid offers, ratings or compliance claims added.
+
+Validation: 19 HTML pages pass links, anchors, assets, canonical/description/JSON-LD, sitemap and campaign checks. All PDFs contain one page at the correct physical paper size: 210 × 297 mm, 8.5 × 11 in and 4 × 6 in. Mobile downloads and desktop homepage inspected in the browser. New guide retained by the optional rebuild scripts; sitemap dates now survive metadata-only rebuilds.
+
+After 1.4.1 is released, replace the pending-review copy on the homepage, guide, support, three troubleshooting guides and llms.txt with available-now wording. Preserve the free downloads and guide URL.
