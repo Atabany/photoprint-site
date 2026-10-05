@@ -32,3 +32,5 @@
 - [Print a photo PDF at actual size: home or print shop](https://usephotoprint.com/print-photo-pdf-actual-size.html)
 - [Free printer test sheet: check actual size and margins](https://usephotoprint.com/print-printer-test-sheet.html)
 - [Print wallet-size photos from iPhone](https://usephotoprint.com/print-wallet-photos-iphone.html)
+
+The printer-test-sheet guide includes a local-only print-scale helper: measured ruler length / labelled length × 100. It diagnoses one measured length and does not certify printer accuracy or ID acceptance.
