@@ -19,6 +19,7 @@
 - [Privacy](https://usephotoprint.com/privacy.html)
 
 ## Printing guides and tools
+- [Print passport photos at a photo lab — no printer needed](https://usephotoprint.com/print-passport-photos-photo-lab.html)
 - [AirPrint photo printing: missing printer, margins and paper](https://usephotoprint.com/airprint-photo-printing-troubleshooting.html)
 - [Photo print resolution: pixels, PPI and cropping](https://usephotoprint.com/photo-print-resolution-ppi.html)
 - [Photo Printed the Wrong Size? Causes and Fixes (iPhone, PDF, Printer) — Photo Print](https://usephotoprint.com/photo-printed-wrong-size.html)
