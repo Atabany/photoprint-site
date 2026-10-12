@@ -37,6 +37,7 @@ for p in ROOT.glob('*.html'):
  try:q.feed(p.read_text())
  except Exception as e:errors.append(f'{p.name}: parse error {e}')
  pages[p.name]=q
+ if 'pending Apple review' in p.read_text() and '1.4.1' in p.read_text():errors.append(f'{p.name}: printer check 1.4.1 is released; remove outdated pending-review copy')
 titles=[q.title for q in pages.values()]
 if len(set(titles))!=len(titles):errors.append('duplicate page titles')
 for name,q in pages.items():

@@ -10,7 +10,7 @@
 - Photos stay on the device. Purchases use Apple / RevenueCat; the other-apps section can query Apple's catalogue.
 - ID and passport sizing and a head-size guide; no official compliance verification or acceptance guarantee.
 
-- Free printer test-sheet PDFs are available on the website. The in-app printer check is coming in 1.4.1, pending Apple review.
+- Free printer test-sheet PDFs are available on the website. The free in-app printer check is available now in Settings → Check your printer’s size.
 
 ## Official pages
 - [Product](https://usephotoprint.com/)
