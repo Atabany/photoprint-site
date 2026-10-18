@@ -27,7 +27,7 @@ schemas = [
     {'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': [{'@type': 'ListItem', 'position': n + 1, 'name': name, 'item': url} for n, (name, url) in enumerate([('Photo Print', BASE), ('Printing guides', BASE + 'guides.html'), (TITLE, URL)])]}
 ]
 head += '<script type="application/ld+json">' + json.dumps(schemas, ensure_ascii=False) + '</script></head>'
-header = re.search(r'<header.*?</header>', source, re.S)[0]
+header = re.search(r'<header.*?</header>', source, re.S)[0].replace('ct=website-nav', 'ct=compare-print-workflows')
 footer = re.search(r'<footer.*?</footer>', source, re.S)[0]
 cta = '<aside class="guide-cta"><h2>Prepare a measured photo sheet.</h2><p>Photo Print for iPhone and iPad: exact sizes, sheet previews, AirPrint, PDF and photo-lab JPEG output.</p><a class="store" href="https://apps.apple.com/app/apple-store/id6808903369?pt=127826363&amp;ct=compare-print-workflows&amp;mt=8"><img src="assets/app-icon.png" width="48" height="48" alt="Photo Print app icon"><img src="assets/app-store-badge.svg" width="120" height="40" alt="Download on the App Store"></a></aside>'
 out = head + '<body><a class="skip" href="#main">Skip to content</a><div class="wrap">' + header + '<main id="main"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Photo Print</a> / <a href="guides.html">Printing guides</a></nav><h1>' + TITLE + '</h1><p class="updated">By <a href="about.html">Mohamed Elatabany</a> · Updated 18 October 2026</p>' + body + cta + '</main>' + footer + '</div></body></html>'
