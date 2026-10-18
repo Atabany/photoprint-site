@@ -143,3 +143,7 @@ Existing HTTPS home/key-guide/robots/sitemap/llms requests returned 200. Local v
 Authenticated browser tools from the previous review are unavailable. Available Orca browser requires sign-in for Google Search Console, Bing Webmaster and App Store Analytics; no new indexing/traffic/campaign results inferred. Preserve October 10 KB metrics (Sep 9–Oct 8 ASC, 130 first-time downloads; 59 ChatGPT app referrals; $51 proceeds / 12 IAPs; RevenueCat last 28 days $90). These were recorded by the October 10 review, not re-pulled today. Website sales attribution remains unverified. Next authenticated review: Google query/indexing and Bing sitemap status, campaigns, comparable post-price windows. Domain and ownership files unchanged.
 
 Publication verified: validator and GitHub Pages Actions succeeded for `9f5324c`; live guide shows available-now wording. IndexNow returned HTTP 200 for all six changed page notifications (received, not an indexing guarantee).
+
+## Growth batch — 18 October 2026
+
+Prepared `photo-printing-apps-iphone.html`, a disclosed developer comparison of Apple Photos/AirPrint, Photo Print, Canon PRINT and Epson Smart Panel. Official sources support printer compatibility and workflows; no invented tests, rankings or prices. Author content: `_ops/photo-printing-apps-iphone.fragment`; render with `_ops/build_comparison.py`, then `_ops/enrich_site.py`, then `_ops/validate.py`. The enrichment step now preserves existing heading IDs so published anchors remain stable. Existing Photo Print weekly growth automation is ACTIVE as read today.

@@ -19,10 +19,10 @@
 - [Privacy](https://usephotoprint.com/privacy.html)
 
 ## Printing guides and tools
-- [Print passport photos at a photo lab — no printer needed](https://usephotoprint.com/print-passport-photos-photo-lab.html)
 - [AirPrint photo printing: missing printer, margins and paper](https://usephotoprint.com/airprint-photo-printing-troubleshooting.html)
 - [Photo print resolution: pixels, PPI and cropping](https://usephotoprint.com/photo-print-resolution-ppi.html)
 - [Photo Printed the Wrong Size? Causes and Fixes (iPhone, PDF, Printer) — Photo Print](https://usephotoprint.com/photo-printed-wrong-size.html)
+- [iPhone Photo Printing Apps: Compare Four Workflows](https://usephotoprint.com/photo-printing-apps-iphone.html)
 - [Photo size calculator: inches, mm and print pixels](https://usephotoprint.com/photo-size-calculator.html)
 - [How to Print 1 × 1 Inch ID Photos from iPhone](https://usephotoprint.com/print-1x1-id-photos-iphone.html)
 - [How to Print 2 × 2 Inch Photos from iPhone](https://usephotoprint.com/print-2x2-photos-iphone.html)
@@ -33,6 +33,7 @@
 - [Print 50 × 60 mm biometric photos for Türkiye from iPhone](https://usephotoprint.com/print-50x60-mm-biometric-photos-turkiye.html)
 - [How to Print Multiple Photos on One Page from iPhone (A4 or Letter) — Photo Print](https://usephotoprint.com/print-multiple-photos-on-one-page.html)
 - [How to Print Passport & ID Photos at Home from iPhone (2×2 in, 35×45 mm) — Photo Print](https://usephotoprint.com/print-passport-photos-at-home.html)
+- [Print passport photos at a photo lab — no printer needed](https://usephotoprint.com/print-passport-photos-photo-lab.html)
 - [Print a photo PDF at actual size: home or print shop](https://usephotoprint.com/print-photo-pdf-actual-size.html)
 - [Free printer test sheet: check actual size and margins](https://usephotoprint.com/print-printer-test-sheet.html)
 - [Print wallet-size photos from iPhone](https://usephotoprint.com/print-wallet-photos-iphone.html)

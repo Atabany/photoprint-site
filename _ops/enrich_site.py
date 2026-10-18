@@ -3,7 +3,7 @@ from pathlib import Path
 import re,json,html,xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
 BASE='https://usephotoprint.com/'
-GUIDES=[p for p in ROOT.glob('*.html') if p.name.startswith('print-') or p.name in ['photo-printed-wrong-size.html','photo-print-resolution-ppi.html','airprint-photo-printing-troubleshooting.html']]
+GUIDES=[p for p in ROOT.glob('*.html') if p.name.startswith('print-') or p.name in ['photo-printing-apps-iphone.html','photo-printed-wrong-size.html','photo-print-resolution-ppi.html','airprint-photo-printing-troubleshooting.html']]
 for p in ROOT.glob('*.html'):
  s=p.read_text();title=html.unescape(re.search(r'<title>(.*?)</title>',s,re.S)[1]);url=BASE+('' if p.name=='index.html' else p.name)
  # A descriptive shared preview, self-hosted and based on the app's onboarding artwork.
@@ -15,9 +15,9 @@ for p in ROOT.glob('*.html'):
    s=s.replace('<main id="main">','<main id="main"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Photo Print</a><span aria-hidden="true">/</span><a href="guides.html">Printing guides</a></nav>')
   headings=[]
   def heading(m):
-   label=html.unescape(re.sub('<[^>]+>','',m[1]));identifier=re.sub(r'[^a-z0-9]+','-',label.lower()).strip('-')
-   headings.append((identifier,label));return '<h2 id="'+identifier+'">'+m[1]+'</h2>'
-  s=re.sub(r'<h2(?: id="[^"]*")?>(.*?)</h2>',heading,s)
+   label=html.unescape(re.sub('<[^>]+>','',m[2]));identifier=m[1] or re.sub(r'[^a-z0-9]+','-',label.lower()).strip('-')
+   headings.append((identifier,label));return '<h2 id="'+identifier+'">'+m[2]+'</h2>'
+  s=re.sub(r'<h2(?: id="([^"]*)")?>(.*?)</h2>',heading,s)
   # Keep the contents focused on article sections, excluding the download card.
   if 'class="article-toc"' not in s:
    toc='<nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><ul>'+''.join('<li><a href="#'+i+'">'+html.escape(t)+'</a></li>' for i,t in headings[:-1])+'</ul></nav>'
@@ -55,6 +55,7 @@ ET.indent(root,space='  ');ET.ElementTree(root).write(ROOT/'sitemap.xml',encodin
 llms_path=ROOT/'llms.txt';s=llms_path.read_text().split('## Printing guides')[0]+'## Printing guides and tools\n'
 for p in sorted(GUIDES+[ROOT/'photo-size-calculator.html']):
  title=html.unescape(re.search(r'<title>(.*?)</title>',p.read_text(),re.S)[1]);s+='- ['+title+']('+BASE+p.name+')\n'
+s += '\nThe printer-test-sheet guide includes a local-only print-scale helper: measured ruler length / labelled length × 100. It diagnoses one measured length and does not certify printer accuracy or ID acceptance.\n'
 llms_path.write_text(s)
 p=ROOT/'robots.txt';s=p.read_text()
 for bot in ['Claude-SearchBot','Claude-User']:
