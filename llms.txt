@@ -3,7 +3,7 @@
 > iPhone and iPad app for printing photos at exact physical sizes. Official App Store listing: https://apps.apple.com/app/id6808903369
 
 ## Product facts
-- iOS / iPadOS 17 or later. AirPrint or PDF output.
+- iOS / iPadOS 17 or later. AirPrint, PDF, or 4 × 6 JPEG sheet export for a photo lab or store kiosk. Photo Print creates the file; it does not place print orders. Lab charges are separate.
 - Photo sizes in inches, centimetres and millimetres. A4, US Letter and 4 × 6 paper.
 - Photos that cannot fit are reported rather than shrunk.
 - First completed output and three saved layouts included. Optional one-time Pro purchase for unlimited outputs, unlimited layouts and saved page setups. Regional price is shown in the app; no subscription.
