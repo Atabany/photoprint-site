@@ -159,3 +159,23 @@ Primary evidence checked: public US Apple lookup confirms live 1.6.0 and its pho
 Google Search Console, Bing sitemap dashboard and App Store campaign dashboard still require sign-in in the available Orca profile, so authenticated indexing and fresh metrics remain unverified. Do not repeat indexing requests based only on unavailable reports. Browser capture in Orca remained blank; an isolated headless Chrome preview verified actual desktop (1280px) and mobile (390px) rendering, no horizontal overflow, working FAQ, lab guide link and campaign CTA. 24 HTML pages pass static validation. Screenshot evidence is local `_ops/photo-lab-home-proof.png` and `_ops/photo-lab-mobile-proof.png`. Next review: obtain comparable authenticated query/indexing and campaign data; measure this CTA only after Apple's threshold, with no assumed conversion uplift.
 
 Verified publication: GitHub connector published commit `3cb702d` after the CLI login expired; both static validation and Pages deployment completed successfully. Live homepage includes the photo-lab section and campaign tag. IndexNow accepted the two changed URLs with HTTP 200 (notification received, not confirmation of indexing or ranking). Local branch was aligned to the identical published tree; no unrelated work discarded. CLI authentication remains expired; use the connected GitHub account or re-authenticate before future command-line pushes.
+
+## 2026-10-24 — discovery audit and passport accuracy
+
+Read in the owner's Chrome. Google Search Console (Pages, last update Oct 16): **4 indexed, 18 "Discovered – currently
+not indexed", 3 redirects**. Performance, 28 days: 326 impressions, **0 clicks**; top queries "how to print multiple
+pictures on one page" (7), pixel-size queries, "passport size photo lab print" (1). Bing: a search for
+"usephotoprint.com" returns **no results** — the site is not in Bing's index yet, so ChatGPT search cannot cite it.
+Bing Webmaster is not signed in in this Chrome profile.
+
+App Store Connect (Sep 24 – Oct 23): 100 of 205 first-time downloads come from the ChatGPT app referrer, 3 from web
+referrers. ChatGPT is recommending the **App Store listing**, not this site. The listing description is the text
+LLMs read about the app; keep it factual and complete (sizes, no-printer route, one-time purchase).
+
+Accuracy fix (commit d610534): the US State Department and HM Passport Office reject photos altered by software
+(travel.state.gov photo page; gov.uk/photos-for-passports "unaltered by computer software"). The at-home, photo-lab
+and 2×2 guides now say background replacement is not for US or UK passports. App 1.7.0 shows the same warning.
+
+Blocker: "Discovered – currently not indexed" on a 3-week-old domain = no external links. Next steps need the owner:
+sign in to Bing Webmaster (or "Import from GSC"), and publish the prepared listings in `../PhotoPrint/marketing/backlinks-2026-10.md`
+(AlternativeTo, Product Hunt). GitHub CLI login has expired; `gh auth login` before the next push.
