@@ -179,3 +179,15 @@ and 2×2 guides now say background replacement is not for US or UK passports. Ap
 Blocker: "Discovered – currently not indexed" on a 3-week-old domain = no external links. Next steps need the owner:
 sign in to Bing Webmaster (or "Import from GSC"), and publish the prepared listings in `../PhotoPrint/marketing/backlinks-2026-10.md`
 (AlternativeTo, Product Hunt). GitHub CLI login has expired; `gh auth login` before the next push.
+
+## 2026-10-26 — locket photo guide
+
+Owner requested a useful SEO article and publication. Added `print-locket-photos-iphone.html`: a distinct custom-size use case beyond the existing passport, wallet and printer guides. Topic choice is an editorial judgment based on app capability and a content gap, not measured keyword volume. The October 24 Search Console record remains the latest query evidence; no fresh traffic or ranking claims made.
+
+Guide covers insert-versus-pendant measurements, a maker-specific template, Photos → Share → Print, custom width/height and copies in Photo Print, Fill versus Fit, a 15 × 20 mm example (178 × 237 visible pixels at 300 PPI), actual-size proofing, hand trimming and a print-shop fallback. Explicitly explains that Photo Print produces rectangles, without claiming locket-shaped masks or a universal locket size. Original SVG is an explanatory diagram, clearly labeled as not a printable template.
+
+Sources checked October 26: Apple’s iPhone printing guide https://support.apple.com/guide/iphone/print-photos-iph1ac0b04b/ios ; Astley Clarke’s replacement-photo guidance https://www.astleyclarke.com/pages/replacement-locket-photos ; Adobe’s scaling documentation https://helpx.adobe.com/acrobat/desktop/print-documents/set-up-and-print-pdfs/page-size.html . App steps checked against SettingsView, PhotoDetailView and ExportPanel in the app repo. Apple US lookup confirms live 1.8.0, minimum iOS 17.0, 0 ratings; no social proof added.
+
+Discovery: linked from the guide directory, wallet guide and multiple-photo guide; added Article, BreadcrumbList and matching visible FAQ schema, canonical/social metadata, sitemap, llms.txt and campaign tag `guide-locket`. Shared build scripts preserve the new directory entry; campaign mapping includes the page.
+
+Prepublication validation: 25 HTML pages pass `_ops/validate.py`; new title 56 characters and description 131. Desktop 1440 px and mobile 390 px were visually inspected in Chrome with JavaScript disabled; no horizontal overflow, broken images or contents targets. Publication and IndexNow verification pending below.

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420" role="img" aria-labelledby="title desc">
+<title id="title">Size the rectangle, then trim the shape</title><desc id="desc">A 15 by 20 millimeter rectangle contains an oval cutting outline. The same oval is shown after trimming. Illustration, not to scale.</desc>
+<rect width="640" height="420" rx="12" fill="#f0ece2"/>
+<g font-family="system-ui,sans-serif" font-size="24" fill="#25251f" text-anchor="middle">
+<text x="175" y="48">Print a rectangle</text><text x="470" y="48">Trim to the insert</text>
+<rect x="109" y="100" width="132" height="176" fill="#d4ddd0" stroke="#354e41" stroke-width="2"/>
+<ellipse cx="175" cy="188" rx="66" ry="88" fill="none" stroke="#a34727" stroke-width="3" stroke-dasharray="7 5"/>
+<ellipse cx="470" cy="188" rx="66" ry="88" fill="#d4ddd0" stroke="#a34727" stroke-width="3"/>
+<path d="M280 188h76m-15-13 15 13-15 13" fill="none" stroke="#66645a" stroke-width="3"/>
+<path d="M109 295v12h132v-12" fill="none" stroke="#354e41" stroke-width="2"/>
+<text x="175" y="338">15 mm wide</text><text x="470" y="338">20 mm tall</text>
+<text x="320" y="390" font-size="22" fill="#66645a">Example only · not a printable template</text>
+</g></svg>

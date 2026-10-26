@@ -19,6 +19,7 @@
 - [Privacy](https://usephotoprint.com/privacy.html)
 
 ## Printing guides and tools
+- [How to print locket photos from iPhone at the right size](https://usephotoprint.com/print-locket-photos-iphone.html): Measure a locket insert, make a custom-size rectangular photo, print at actual size and trim by hand.
 - [AirPrint photo printing: missing printer, margins and paper](https://usephotoprint.com/airprint-photo-printing-troubleshooting.html)
 - [Photo print resolution: pixels, PPI and cropping](https://usephotoprint.com/photo-print-resolution-ppi.html)
 - [Photo Printed the Wrong Size? Causes and Fixes (iPhone, PDF, Printer) — Photo Print](https://usephotoprint.com/photo-printed-wrong-size.html)
