@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — Photo Print</title>
 <link rel="canonical" href="https://usephotoprint.com/privacy.html">
-<meta name="description" content="Photo Print privacy policy: photos stay on your device. Details about local storage, Apple and RevenueCat purchases, and the other-apps lookup.">
+<meta name="description" content="Photo Print privacy policy for iOS and Android: photos stay on your device. Details about local storage, App Store and Google Play purchases through RevenueCat, ML Kit on Android, and the other-apps lookup.">
 <meta name="apple-itunes-app" content="app-id=6808903369">
 <meta property="og:image" content="https://usephotoprint.com/assets/print-studio-poster.webp">
 <meta property="og:image:alt" content="Photo Print artwork showing photo sizes, sheets and printing">
@@ -21,28 +21,41 @@
 <header class="site-header"><a class="brand" href="index.html"><img src="assets/app-icon.png" width="40" height="40" alt="">Photo Print<span>.</span></a><nav aria-label="Main"><a href="guides.html">Printing guides</a><a href="support.html">Support</a><a class="nav-store" href="https://apps.apple.com/app/apple-store/id6808903369?pt=127826363&amp;ct=website-nav&amp;mt=8" aria-label="Download Photo Print on the App Store"><img src="assets/app-store-badge.svg" width="120" height="40" alt="Download on the App Store"></a></nav></header>
 <main id="main">
 <h1>Photo Print — Privacy Policy</h1>
-<p class="updated"><em>Last updated: 24 October 2026</em></p>
-<p>This policy explains what Photo Print: Size &amp; Layout (&quot;Photo Print&quot;, &quot;the app&quot;) does with your information. The short version: your photos stay on your device, and there is no account.</p>
+<p class="updated"><em>Last updated: 8 November 2026</em></p>
+<p>This policy explains what Photo Print: Size &amp; Layout (&quot;Photo Print&quot;, &quot;the app&quot;) does with your information. The short version: your photos stay on your device, and there is no account. It covers the app on iPhone and iPad and the app for Android; where Android works differently, the section <strong>Photo Print for Android</strong> below says how, and everything else applies to both.</p>
 <h2>Photos</h2>
 <p>When you add photos to a layout, the app copies them from the system photo picker into its own private storage on your device, so that saved layouts open again later. The app never uploads photos anywhere, never reads your photo library on its own (the system picker only hands over what you choose), and deletes its copies when you delete the layout. If you replace an ID photo&#x27;s background, that happens on your device and the edited copy is kept next to the original in the same private storage. Auto-frame finds the face in an ID photo on your device too, to set the crop; it keeps no face data.</p>
-<p>PDFs and photo-lab images you save or share, and print jobs you send, go where you send them: to the location you choose in Files, to your photo library when you choose Save Image (iOS asks your permission first, and the app can add images there but not read them), to the app you share to, or to the printer you pick through AirPrint.</p>
+<p>PDFs and photo-lab images you save or share, and print jobs you send, go where you send them: to the location you choose (Files on iOS, the folder you pick on Android), to your photo library when you choose Save Image on iOS (iOS asks your permission first, and the app can add images there but not read them), to the app you share to, or to the printer you pick (through AirPrint on iOS, through Android&#x27;s print service on Android).</p>
 <h2>Purchases</h2>
-<p>The Pro unlock is a one-time purchase through Apple&#x27;s App Store. Apple processes the payment under Apple&#x27;s privacy policy. The app uses RevenueCat to verify the purchase and restore it on your other devices; RevenueCat receives an anonymous app-user identifier and purchase receipt data, and nothing about your photos or layouts. See RevenueCat&#x27;s privacy policy at <a href="https://www.revenuecat.com/privacy">https://www.revenuecat.com/privacy</a>.</p>
-<p>If you installed the app by tapping an Apple ad in the App Store, the app passes Apple&#x27;s ad-attribution token to RevenueCat, so the developer can see which ads lead to purchases. Apple makes this token without any device identifier or tracking across other companies&#x27; apps, and the app shows no ads itself.</p>
+<p>The Pro unlock is a one-time purchase through Apple&#x27;s App Store or Google Play. Apple or Google processes the payment under its own privacy policy, and the developer never sees your payment details. The app uses RevenueCat to verify the purchase and restore it on your other devices; RevenueCat receives an anonymous app-user identifier and purchase receipt data, and nothing about your photos or layouts. See RevenueCat&#x27;s privacy policy at <a href="https://www.revenuecat.com/privacy">https://www.revenuecat.com/privacy</a>.</p>
+<p>On iOS, if you installed the app by tapping an Apple ad in the App Store, the app passes Apple&#x27;s ad-attribution token to RevenueCat, so the developer can see which ads lead to purchases. Apple makes this token without any device identifier or tracking across other companies&#x27; apps, and the app shows no ads itself.</p>
 <h2>Other apps</h2>
-<p>Settings has a &quot;More apps&quot; section listing the developer&#x27;s other apps. When you open Settings, the app asks Apple&#x27;s public App Store lookup service for those apps&#x27; current names, taglines and icons, so the list is never out of date. The request contains the developer&#x27;s Apple ID and your App Store region; it contains nothing about you, your device or your photos, and the answer is a public App Store listing. The result is kept in the app&#x27;s cache for a week so the section works offline. Tapping an app opens the App Store.</p>
+<p>On iOS, Settings has a &quot;More apps&quot; section listing the developer&#x27;s other apps (the Android app has no such section). When you open Settings, the app asks Apple&#x27;s public App Store lookup service for those apps&#x27; current names, taglines and icons, so the list is never out of date. The request contains the developer&#x27;s Apple ID and your App Store region; it contains nothing about you, your device or your photos, and the answer is a public App Store listing. The result is kept in the app&#x27;s cache for a week so the section works offline. Tapping an app opens the App Store.</p>
 <h2>What the app does not do</h2>
 <ul>
 <li>No account, sign-in or personal profile.</li>
-<li>No analytics, no ads inside the app, and no tracking across other companies&#x27; apps or websites.</li>
-<li>No server of its own. The only network traffic is the App Store purchase and its verification, the ad-attribution token described above, and the App Store listing request described above.</li>
+<li>No analytics or advertising SDK of the developer&#x27;s own, no ads inside the app, and no tracking across other companies&#x27; apps or websites.</li>
+<li>No server of its own. The only network traffic is the store purchase and its verification and, on iOS, the ad-attribution token and the App Store listing request described above; on Android, the ML Kit diagnostics and model download described below.</li>
 </ul>
 <h2>Data on your device</h2>
-<p>Layouts, their photos, and your preferences (measurement unit, how many free exports you have used) are stored in the app&#x27;s own container on the device and are included in your device backups. Deleting the app deletes all of it.</p>
+<p>Layouts, their photos, and your preferences (measurement unit, how many free exports you have used) are stored in the app&#x27;s own container on the device and, on iOS, are included in your device backups. Deleting the app deletes all of it.</p>
+<h2 id="photo-print-for-android">Photo Print for Android</h2>
+<p>The Android app makes the same promises: no account, no server of the developer&#x27;s own, and your photos never leave your phone. It differs from the iPhone app in these ways.</p>
+<ul>
+<li><strong>Auto-frame and backgrounds use Google&#x27;s ML Kit on your phone.</strong> Finding the face in an ID photo and replacing its background run on the device, and the photo is not sent anywhere. ML Kit, which the app includes for this, sends Google diagnostic information about how it is working: device and app information, performance metrics, which feature ran, error codes and a per-installation identifier. It never includes your photos. Google describes it at <a href="https://developers.google.com/ml-kit/android-data-disclosure">https://developers.google.com/ml-kit/android-data-disclosure</a>. On phones that support it, the better background model is downloaded once through Google Play services.</li>
+<li><strong>Purchases</strong> are made through Google Play, under Google&#x27;s privacy policy. RevenueCat receives the Google Play purchase information, the anonymous app-user identifier it generates, and basic device, app and OS version details, to work out whether you have Pro and to restore it. There is no Apple Ads measurement, and no other advertising measurement, on Android. A purchase belongs to the store it was made in: Pro bought on the App Store does not unlock the Android app, and the other way round, because there is no Photo Print account to connect the two.</li>
+<li><strong>Ratings.</strong> When the app asks for a rating, it uses Google Play&#x27;s in-app review, which Google Play handles.</li>
+<li><strong>Permissions.</strong> None that you are asked for: photos arrive through Android&#x27;s photo picker, which hands the app only what you choose; printing goes through Android&#x27;s print service; saving a PDF goes through the folder picker. The app asks for no storage, camera, location or contacts permission, and does not request the advertising ID. It has internet access only for the purchase check and the ML Kit traffic above.</li>
+<li><strong>Backups.</strong> Layouts and their photos are left out of your Google Account&#x27;s device backup, because they can be large; preferences may be included. Uninstalling the app removes everything from the phone.</li>
+<li><strong>Deleting.</strong> For the purchase record Google Play and RevenueCat hold, email the address on the Support page and the developer will request its deletion on your behalf.</li>
+</ul>
 <h2>Children</h2>
 <p>The app is not directed at children under 13 and collects no personal information from anyone.</p>
 <h2>Changes</h2>
 <p>If this policy changes, the new version is published at the same address with a new date.</p>
+<ul>
+<li><strong>8 November 2026:</strong> added <strong>Photo Print for Android</strong>, which describes the Android app, and made the store and printing wording cover both platforms. Nothing about the iPhone and iPad app changed.</li>
+</ul>
 <h2>Contact</h2>
 <p>Questions about this policy: see the Support page linked from the app&#x27;s Settings.</p>
 </main>
