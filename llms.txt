@@ -6,7 +6,7 @@
 - iOS / iPadOS 17 or later. AirPrint, PDF, or 4 × 6 JPEG sheet export for a photo lab or store kiosk. Photo Print creates the file; it does not place print orders. Lab charges are separate.
 - Photo sizes in inches, centimetres and millimetres. A4, US Letter and 4 × 6 paper.
 - Photos that cannot fit are reported rather than shrunk.
-- First completed output and three saved layouts included. Optional one-time Pro purchase for unlimited outputs, unlimited layouts and saved page setups. Regional price is shown in the app; no subscription.
+- First completed output and three saved layouts included. Optional Pro (weekly or yearly subscription, or a one-time lifetime unlock) for unlimited outputs, unlimited layouts and saved page setups. Regional prices are shown in the app.
 - Photos stay on the device. Purchases use Apple / RevenueCat; the other-apps section can query Apple's catalogue.
 - ID and passport sizing and a head-size guide; no official compliance verification or acceptance guarantee.
 
@@ -41,3 +41,5 @@
 - [Print wallet-size photos from iPhone](https://usephotoprint.com/print-wallet-photos-iphone.html)
 
 The printer-test-sheet guide includes a local-only print-scale helper: measured ruler length / labelled length × 100. It diagnoses one measured length and does not certify printer accuracy or ID acceptance.
+
+The photo-lab sheet is exactly 4 × 6 inches (101.6 × 152.4 mm); a service may label this 10 × 15 cm. The photo-lab guide explains how to check actual dimensions and avoid resizing to literal 100 × 150 mm.
