@@ -207,3 +207,32 @@ Contents: a direct answer, when Photos is enough, exact steps in Photo Print (Se
 Linked from the directory (card and CollectionPage), the 4 × 6, wallet and multi-photo guides, the sitemap and llms.txt. The unrelated, uncommitted October 29 photo-lab edits (lab page, its llms line and sitemap date) were left out of the commit and remain in the working tree.
 
 Verified: the staged tree passes `_ops/validate.py` (26 pages). Desktop 1280 px and a true 390 px viewport were inspected; the size table scrolls inside `.table-wrap` with no page overflow. Commit `b5e4581` passed Validate website and Pages deployment. All 7 changed resources return HTTPS 200 with the new content. IndexNow HTTP 200 for 5 URLs (received, not proof of indexing). Next weekly guide no earlier than 11 November 2026.
+
+## 2026-11-08 — query-led improvements to the three pages Google shows most
+
+Search Console (28 days to Nov 6): 826 impressions, 4 clicks, average position 20.6; 9 indexed, 14 "Discovered – currently not
+indexed". Impressions sit on the calculator (484, position 17), multiple photos (127, 22) and wallet (82, 41); queries ask for
+wallet dimensions, an app to print wallet photos, 4 photos on one page and print-size calculators. Bing `site:usephotoprint.com`
+still returns no pages of this site; Bing Webmaster needs the owner's sign-in.
+
+Commit `72d9a64` improves existing pages instead of adding a new one (no new guide, so the weekly limit is untouched; next new guide
+no earlier than 11 November):
+- Wallet guide: dimensions answered first (2 × 3 in or 2.5 × 3.5 in, in/cm/mm, pixels at 300/200 PPI), per-sheet counts for 4 × 6,
+  5 × 7, Letter and A4 with and without gaps, four wallets from one 4 × 6 lab print (Space between photos 0), FAQ with matching JSON-LD,
+  app icon beside the badge. Store-specific wallet sizes were left out: sources disagree.
+- Multiple-photos guide: "How to print 4 photos on one page" (four 3.5 × 5 in or 9 × 13 cm per A4/Letter), 3.5 × 5 and 2.5 × 3.5 rows,
+  FAQ entry, title shortened to 52 characters, description 151.
+- Calculator: pixels-to-print-size mode (`assets/size-calculator.js?v=20261108`), iPhone 12/24/48 MP maximum print sizes, six more
+  sizes, each size linked to its guide (internal links to the unindexed size guides from the most-crawled page), BreadcrumbList,
+  no more self-link in Next steps.
+
+Every per-sheet count comes from the app's `LayoutEngine` + `SheetFiller` compiled from `PhotoPrint/Domain/*.swift` (plus
+`Rendering/BackgroundReplacer.swift` for one type) with a small `main.swift`; the existing table counts were re-verified the same way.
+`build_guides.py` would overwrite the calculator and wallet pages: do not re-run it.
+
+Checks: `validate.py` PASS (26 pages); rendered in a true 390 px iframe (headless Chrome cannot lay out below ~500 px, so a direct
+390 px window crops every page) and at 1280 px; both calculator modes tested in headless Chrome (5712 × 4284 at 200 PPI → 28.56 ×
+21.42 in; 35 × 45 mm → 414 × 532 px). Pages and validation workflows passed; live pages serve the new content. IndexNow HTTP 200
+for 4 URLs. Google priority-crawl requests accepted for wallet, multiple photos, calculator, 2 × 2, 35 × 45 and 4 × 6; sitemap
+resubmitted (25 discovered). The 35 × 45 and 4 × 6 guides inspected as "URL is unknown to Google", the 2 × 2 guide as discovered with
+no referring page. Next review: whether those three get indexed, and positions/CTR for the three rewritten pages after ~2 weeks.
