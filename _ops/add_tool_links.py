@@ -4,7 +4,7 @@ from pathlib import Path
 import re
 ROOT=Path(__file__).resolve().parents[1]
 GENERATED={'tools.html','photos-per-page-calculator.html','photo-print-quality-checker.html','photo-crop-calculator.html'}
-CSS='assets/style.css?v=20261115'
+CSS='assets/style.css?v=2026111502'
 SHEET='<li><a href="photos-per-page-calculator.html">Photos per page calculator: how many fit on a sheet</a></li>'
 QUALITY='<li><a href="photo-print-quality-checker.html">Print quality checker: is your photo sharp enough?</a></li>'
 CROP='<li><a href="photo-crop-calculator.html">Crop calculator: what each print size cuts off</a></li>'

@@ -1,0 +1,27 @@
+{
+ "count": 8,
+ "average": 5.0,
+ "checked": "2026-11-15",
+ "storefronts": {
+  "in": {
+   "count": 1,
+   "average": 5
+  },
+  "mx": {
+   "count": 1,
+   "average": 5
+  },
+  "ph": {
+   "count": 3,
+   "average": 5
+  },
+  "th": {
+   "count": 2,
+   "average": 5
+  },
+  "us": {
+   "count": 1,
+   "average": 5
+  }
+ }
+}

@@ -283,3 +283,14 @@ passes against the live site. IndexNow HTTP 200 for 10 URLs (received, not proof
 URLs inspected as "URL is unknown to Google"; indexing requests accepted into the priority crawl queue for all four; sitemap
 resubmitted (29 discovered). Overview at the time: 12 indexed, 17 not indexed. Next review: whether the tools get indexed and which
 queries reach them, after about two weeks.
+
+## 2026-11-15 — App Store rating on the site
+
+Owner: "Put the app ratings on the site, it's now 8 ratings." Apple's lookup API, every storefront: 8 ratings, all 5 stars
+(Philippines 3, Thailand 2, US 1, India 1, Mexico 1). Each storefront shows only its own count (the US page shows 1), so the site
+says "worldwide": "★★★★★ 5.0 on the App Store · rated by 8 users worldwide". Shown under every App Store badge on guides and tools,
+the home hero, a home CTA and the final CTA; About facts row; llms.txt fact; home MobileApplication `aggregateRating` (as Photo
+Cleaner's site does). `_ops/update_rating.py` reads every storefront, writes `_ops/rating.json` and fills `<!--app-rating-->`
+markers; `--apply` reuses the saved numbers after a page rebuild (run it after `build_tools.mjs`). Hidden below 5 ratings. It aborts
+on any failed lookup rather than publish an undercount. validate.py fails if a page with a badge lacks the line or pages disagree.
+Rebuild order is now: build_tools.mjs → add_tool_links.py → update_rating.py --apply → appstore_campaign.py → validate.py.

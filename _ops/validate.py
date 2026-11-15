@@ -79,6 +79,16 @@ for name,q in pages.items():
    params=parse_qs(u.query)
    if params.get('pt')!=['127826363'] or not 0<len(params.get('ct',[''])[0])<=30:
     errors.append(f'{name}: invalid App Store campaign link')
+# The App Store rating is written by _ops/update_rating.py and must be the same everywhere.
+rating_file=ROOT/'_ops/rating.json'
+if rating_file.exists():
+ rating=json.loads(rating_file.read_text())
+ blocks={b for f in ROOT.glob('*.html') for b in re.findall(r'<!--app-rating-->(.*?)<!--/app-rating-->',f.read_text(),re.S)}
+ if len(blocks)>1:errors.append('App Store rating differs between pages; run python3 _ops/update_rating.py --apply')
+ if rating['count']>=5 and f"rated by {rating['count']} users" not in ''.join(blocks):errors.append('App Store rating does not match _ops/rating.json')
+ for f in ROOT.glob('*.html'):
+  t=f.read_text()
+  if 'class="store"' in t and '<!--app-rating-->' not in t:errors.append(f'{f.name}: App Store badge without the rating line; run python3 _ops/update_rating.py --apply')
 if errors:
  print('\n'.join(errors));raise SystemExit(1)
 print(f'PASS: {len(pages)} pages; links, anchors, local assets, canonical URLs, descriptions, JSON-LD, sitemap and llms.txt')

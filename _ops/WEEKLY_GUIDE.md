@@ -16,6 +16,8 @@ second schedule. The local computer and desktop app need to be running for local
 3. When accessible, review Search Console/Bing queries and indexing, App Store campaign
    referrals and aggregate downloads. Record source, reporting window and data delays.
    Missing access or suppressed data is not zero and does not block independent research.
+   Run `python3 _ops/update_rating.py` to refresh the App Store rating shown on the site (sum of
+   every storefront; it changes nothing if any storefront lookup fails) and publish it when it changed.
 4. Prefer a distinct question with a real app workflow or a substantial improvement to an
    existing guide. Check the whole guide index before choosing. Avoid near-duplicate
    country pages, keyword variants and articles written merely to meet a quota. Use query

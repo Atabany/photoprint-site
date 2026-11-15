@@ -9,7 +9,7 @@ const require = createRequire(import.meta.url);
 const M = require('../assets/print-math.js');
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const BASE = 'https://usephotoprint.com/';
-const CSS = 'assets/style.css?v=20261115';
+const CSS = 'assets/style.css?v=2026111502';
 const UPDATED = '15 November 2026', UPDATED_ISO = '2026-11-15';
 const AUTHOR = {'@type': 'Person', name: 'Mohamed Elatabany', url: BASE + 'about.html'};
 const STORE = tag => `https://apps.apple.com/app/apple-store/id6808903369?pt=127826363&amp;ct=${tag}&amp;mt=8`;
