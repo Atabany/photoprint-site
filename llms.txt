@@ -26,6 +26,7 @@
 - [Photo crop calculator](https://usephotoprint.com/photo-crop-calculator.html): what 4 × 6, 5 × 7, 8 × 10, 3.5 × 5, wallet, 11 × 14, 8.5 × 11, A4 and square prints cut off a photo or a 4:3, 3:2, 16:9, 1:1 or 19.5:9 shape. A 4:3 iPhone photo loses 11.1% to a 4 × 6 print; a 3:2 photo loses none.
 
 ## Printing guides and tools
+- [How to check a photo’s size on iPhone](https://usephotoprint.com/check-photo-size-iphone.html): Photos → ⓘ or swipe up shows pixels (e.g. 3024 × 4032), MP and file size; pixels ÷ 300 = largest sharp print (10.08 × 13.44 in for 12 MP); the 72 DPI tag and MB are not print sizes; Mac/Windows steps; Photo Print’s See actual size.
 - [How to print a photo at a specific size on iPhone](https://usephotoprint.com/print-photo-specific-size-iphone.html): The Photos app has no print-size field; set any width and height in inches, cm or mm, check A4/Letter fit (8 × 10 in fits Letter, not A4 with normal margins), choose Fill or Fit and print at 100%.
 - [How to print locket photos from iPhone at the right size](https://usephotoprint.com/print-locket-photos-iphone.html): Measure a locket insert, make a custom-size rectangular photo, print at actual size and trim by hand.
 - [AirPrint photo printing: missing printer, margins and paper](https://usephotoprint.com/airprint-photo-printing-troubleshooting.html)

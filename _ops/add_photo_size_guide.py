@@ -1,0 +1,156 @@
+#!/usr/bin/env python3
+"""Writes check-photo-size-iphone.html (guide published 2026-11-15). Numbers are computed here.
+Afterwards: python3 _ops/update_rating.py --apply && python3 _ops/appstore_campaign.py && python3 _ops/validate.py"""
+from pathlib import Path
+import html, json, re
+ROOT = Path(__file__).resolve().parents[1]
+FILE = 'check-photo-size-iphone.html'
+URL = 'https://usephotoprint.com/' + FILE
+TITLE = 'How to Check a Photo’s Size on iPhone (Pixels, Inches, cm)'
+DESC = 'See a photo’s pixel size on iPhone, iPad, Mac or Windows, turn pixels into inches or cm for printing, and why 72 DPI and file size don’t matter.'
+assert len(TITLE) <= 60 and len(DESC) <= 155, (len(TITLE), len(DESC))
+AUTHOR = {'@type': 'Person', 'name': 'Mohamed Elatabany', 'url': 'https://usephotoprint.com/about.html'}
+
+def size(px_w, px_h, ppi):
+    w, h = px_w / ppi, px_h / ppi
+    return f'{w:.2f} × {h:.2f} in ({w * 2.54:.1f} × {h * 2.54:.1f} cm)'
+
+PHOTOS = [('12 MP iPhone photo', 3024, 4032), ('24 MP iPhone photo', 4284, 5712), ('48 MP iPhone photo', 6048, 8064),
+          ('iPhone 15 or 16 screenshot', 1179, 2556)]
+rows = '\n'.join(f'<tr><th scope="row">{n}</th><td>{w} × {h}</td><td>{size(w, h, 300)}</td><td>{size(w, h, 200)}</td></tr>' for n, w, h in PHOTOS)
+# Numbers quoted in the text, checked against the same arithmetic.
+assert size(3024, 4032, 300) == '10.08 × 13.44 in (25.6 × 34.1 cm)'
+assert size(3024, 4032, 72).startswith('42.00 × 56.00 in')
+assert size(1179, 2556, 300).startswith('3.93 × 8.52 in')
+
+FAQ = [
+    ('How do I see the pixel size of a photo on iPhone?',
+     'Open the photo in the Photos app, then tap the info button (ⓘ) or swipe up. The details panel shows the megapixels, the width × height in pixels and the file size.'),
+    ('How big is my photo in inches?',
+     'A digital photo has no fixed size in inches. Divide each pixel dimension by 300 to get the largest size that prints sharp, or by 200 for a size that still looks good in a frame. A 3024 × 4032 photo is 10.08 × 13.44 in at 300 PPI.'),
+    ('Why does my iPhone photo say 72 DPI?',
+     'That number is a tag stored in the file. It does not limit the print size or the quality. The printed size is the size you choose when you print.'),
+    ('Does the file size in MB show how big I can print?',
+     'No. File size depends on compression and the image format. The pixel dimensions decide how large a photo prints well.'),
+    ('How can I see how big a photo will be before printing it?',
+     'Set the print size in Photo Print and tap See actual size to view the photo at that size on the screen, with rulers. Or print a test sheet at 100% and measure it.'),
+]
+faq_html = '\n'.join(f'<h3>{q}</h3><p>{a}</p>' for q, a in FAQ)
+ld = [
+    {'@context': 'https://schema.org', '@type': 'Article', 'headline': TITLE, 'description': DESC, 'url': URL,
+     'datePublished': '2026-11-15', 'dateModified': '2026-11-15', 'author': AUTHOR, 'mainEntityOfPage': URL},
+    {'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': [
+        {'@type': 'ListItem', 'position': 1, 'name': 'Photo Print', 'item': 'https://usephotoprint.com/'},
+        {'@type': 'ListItem', 'position': 2, 'name': 'Printing guides', 'item': 'https://usephotoprint.com/guides.html'},
+        {'@type': 'ListItem', 'position': 3, 'name': TITLE, 'item': URL}]},
+    {'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [
+        {'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in FAQ]},
+]
+STORE = 'https://apps.apple.com/app/apple-store/id6808903369?pt=127826363&amp;ct=guide-photo-size&amp;mt=8'
+e = lambda s: html.escape(s, quote=True)
+
+page = f'''<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{e(TITLE)}</title><meta name="description" content="{e(DESC)}"><link rel="canonical" href="{URL}">
+<meta name="robots" content="index,follow,max-image-preview:large"><meta name="apple-itunes-app" content="app-id=6808903369">
+<meta property="og:type" content="article"><meta property="og:title" content="{e(TITLE)}"><meta property="og:description" content="{e(DESC)}"><meta property="og:url" content="{URL}">
+<meta property="og:image" content="https://usephotoprint.com/assets/print-studio-poster.webp"><meta property="og:image:alt" content="Photo Print artwork showing photo sizes, sheets and printing"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="apple-touch-icon" href="assets/app-icon.png"><link rel="stylesheet" href="assets/style.css?v=2026111502">
+{''.join(f'<script type="application/ld+json">{json.dumps(d, ensure_ascii=False)}</script>' for d in ld)}
+</head><body><a class="skip" href="#main">Skip to content</a><div class="wrap"><header class="site-header"><a class="brand" href="index.html"><img src="assets/app-icon.png" width="40" height="40" alt="">Photo Print<span>.</span></a><nav aria-label="Main"><a href="guides.html">Printing guides</a><a href="tools.html">Tools</a><a href="support.html">Support</a><a class="nav-store" href="https://apps.apple.com/app/apple-store/id6808903369?pt=127826363&amp;ct=website-nav&amp;mt=8" aria-label="Download Photo Print on the App Store"><img src="assets/app-store-badge.svg" width="120" height="40" alt="Download on the App Store"></a></nav></header><main id="main">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Photo Print</a><span aria-hidden="true">/</span><a href="guides.html">Printing guides</a></nav>
+<h1>How to check a photo’s size on iPhone</h1><p class="updated">By <a href="about.html">Mohamed Elatabany</a> · Updated 15 November 2026</p>
+
+<p class="answer">Open the photo in Photos and tap the info button (ⓘ) or swipe up: the panel shows its size in pixels, such as <strong>3024 × 4032</strong>. A photo has no fixed size in inches until you print it. Divide the pixels by 300 for the largest sharp print: <strong>10.08 × 13.44 in</strong> (25.6 × 34.1 cm) for a 3024 × 4032 photo.</p>
+<p>“Size” can mean three different things for a photo: its pixels, its file size, and how big it comes out on paper. This guide shows where to find each one and how to turn pixels into a print size you can use.</p>
+<nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><ul><li><a href="#pixel-size-on-iphone">1. See the pixel size on iPhone or iPad</a></li><li><a href="#three-sizes">2. Pixels, file size and print size</a></li><li><a href="#pixels-to-inches">3. Turn pixels into inches or cm</a></li><li><a href="#why-72-dpi">4. Why it says 72 DPI</a></li><li><a href="#mac-and-windows">5. Check the size on a Mac or Windows PC</a></li><li><a href="#measure-a-print">6. Measure a printed photo</a></li><li><a href="#see-it-before-printing">7. See the real size before you print</a></li><li><a href="#questions">Photo size questions</a></li></ul></nav>
+
+<h2 id="pixel-size-on-iphone">1. See the pixel size on iPhone or iPad</h2>
+<ol>
+<li>Open the <strong>Photos</strong> app and tap the photo.</li>
+<li>Tap the <strong>info button (ⓘ)</strong> below the photo, or swipe up on it.</li>
+<li>Read the line under the camera name: the megapixels, the width × height in pixels and the file size, for example <em>12 MP · 3024 × 4032 · 2.4 MB</em>.</li>
+</ol>
+<p>Width comes first. A photo taken upright is taller than it is wide, so 3024 × 4032 is a portrait photo and 4032 × 3024 the same photo sideways. Screenshots, downloads and photos saved from messaging apps show their own pixel size in the same place, often much smaller than a camera photo. Apple describes the info panel in its <a href="https://support.apple.com/guide/iphone/view-photos-and-videos-iph3d267610/ios">iPhone User Guide</a>.</p>
+<p>For printing, what counts is the part of the photo you will print: cropping keeps fewer pixels than the panel shows for the whole photo.</p>
+
+<h2 id="three-sizes">2. Pixels, file size and print size</h2>
+<div class="table-wrap"><table>
+<caption>Three meanings of “photo size”</caption>
+<thead><tr><th scope="col">Size</th><th scope="col">Example</th><th scope="col">What it tells you</th></tr></thead>
+<tbody>
+<tr><th scope="row">Pixels</th><td>3024 × 4032</td><td>How much detail the photo holds, and so how large it can print sharply.</td></tr>
+<tr><th scope="row">File size</th><td>2.4 MB</td><td>How much storage it takes. It changes with compression and format, so it says little about print size.</td></tr>
+<tr><th scope="row">Print size</th><td>4 × 6 in</td><td>The size on paper. You choose it when you print; the pixels decide how sharp it looks at that size.</td></tr>
+</tbody></table></div>
+
+<h2 id="pixels-to-inches">3. Turn pixels into inches or cm</h2>
+<p>Divide each pixel dimension by the pixels per inch (PPI) you want on paper. 300 PPI looks sharp even up close; 200 PPI still looks good at normal viewing distance. Multiply inches by 2.54 for centimetres.</p>
+<p>Worked example: 3024 ÷ 300 = 10.08 and 4032 ÷ 300 = 13.44, so a 12 MP iPhone photo prints sharp up to 10.08 × 13.44 in, or 25.6 × 34.1 cm. Anything smaller, such as a 4 × 6 or 5 × 7, has detail to spare.</p>
+<div class="table-wrap"><table>
+<caption>Largest print size by pixel size, full photo without cropping</caption>
+<thead><tr><th scope="col">Photo</th><th scope="col">Pixels</th><th scope="col">Sharp (300 PPI)</th><th scope="col">Good (200 PPI)</th></tr></thead>
+<tbody>
+{rows}
+</tbody></table></div>
+<p>Cropping to a different shape uses fewer pixels: a 4 × 6 print cuts about 11% off an iPhone photo. To check a particular photo at a particular size, choose it in the <a href="photo-print-quality-checker.html">print quality checker</a>, which reads the pixel size in your browser and shows the PPI after the crop. To convert sizes without a photo, use the <a href="photo-size-calculator.html">photo size calculator</a>.</p>
+
+<h2 id="why-72-dpi">4. Why it says 72 DPI</h2>
+<p>Many photos, including those from iPhone, carry a resolution tag of 72 pixels per inch. Some programs divide the pixels by that tag and report a 3024 × 4032 photo as 42 × 56 inches. That figure is not a print size and not a quality limit. The tag is only a note in the file: when you print, the size you choose sets how many pixels land on each inch, and the photo's pixels decide whether that looks sharp.</p>
+
+<h2 id="mac-and-windows">5. Check the size on a Mac or Windows PC</h2>
+<ul>
+<li><strong>Photos on Mac:</strong> select the photo and click the Info button in the toolbar, or press Command-I. The Info window lists the pixel dimensions and file size.</li>
+<li><strong>Preview on Mac:</strong> open the image and click the Info button in the toolbar. In the Inspector, General Info shows the image size in pixels (<a href="https://support.apple.com/guide/preview/view-information-about-pdfs-and-images-prvw9c94f0a4/mac">Apple’s Preview guide</a>).</li>
+<li><strong>Finder:</strong> select the file, choose File › Get Info, and look under More Info for Dimensions.</li>
+<li><strong>Windows:</strong> right-click the file in File Explorer, choose Properties, open the Details tab and read Dimensions.</li>
+</ul>
+
+<h2 id="measure-a-print">6. Measure a printed photo</h2>
+<p>For a photo that is already printed, measure the paper, not the picture area, with a ruler in millimetres. Common sizes are 51 × 51 mm (<a href="print-2x2-photos-iphone.html">2 × 2 in</a>), 35 × 45 mm (<a href="print-35x45-mm-photos-iphone.html">passport and visa photos</a>), 51 × 76 mm or 64 × 89 mm (<a href="print-wallet-photos-iphone.html">wallet photos</a>), 102 × 152 mm (<a href="print-4x6-photo-exact-size-iphone.html">4 × 6 in</a>, often sold as 10 × 15 cm), 127 × 178 mm (5 × 7 in) and 203 × 254 mm (8 × 10 in). A print that is a few millimetres short of one of these was usually scaled by the printer: see <a href="photo-printed-wrong-size.html">why prints come out the wrong size</a>.</p>
+
+<h2 id="see-it-before-printing">7. See the real size before you print</h2>
+<p>Numbers on a screen are hard to picture. In <a href="index.html">Photo Print</a>, set the print size you want in inches, cm or mm, then tap the photo in your layout to open it:</p>
+<ul>
+<li><strong>Print quality</strong> shows the PPI and a rating for that size, and the pixels the crop uses.</li>
+<li><strong>How large can it print?</strong> lists the largest size at Excellent (300 PPI) and Good (200 PPI) quality, in your chosen unit.</li>
+<li><strong>See actual size</strong> shows the photo on the screen at the exact size it will print, with rulers, on iPhones and iPads whose screen size the app knows. Hold a printed photo against it to compare.</li>
+</ul>
+<p>The app never shrinks a photo to fit: if a size is too big for the paper, it tells you instead.</p>
+
+<h2 id="questions">Photo size questions</h2>
+{faq_html}
+
+<h2 id="related-guides">Related guides</h2>
+<ul>
+<li><a href="photo-print-resolution-ppi.html">Photo print resolution: pixels, PPI and cropping</a></li>
+<li><a href="print-photo-specific-size-iphone.html">Print a photo at a specific size on iPhone</a></li>
+<li><a href="photo-crop-calculator.html">See what each print size crops off your photo</a></li>
+<li><a href="guides.html">All printing guides</a></li>
+</ul>
+
+<p class="article-end">Written by <a href="about.html">Mohamed Elatabany</a>, developer of Photo Print. App steps were checked against the app’s controls; menu names follow Apple’s and Microsoft’s current apps and can move between versions. Sources checked 15 November 2026. <a href="support.html">Send a correction or ask for help</a>.</p>
+<aside class="guide-cta"><h2>See every photo at its real size.</h2><p>Photo Print sets exact sizes in inches, cm or mm, rates print quality for each photo and shows it at actual size before you print, with AirPrint, PDF or a 4 × 6 photo-lab file. Your first completed output is included; Pro is available as a subscription or a one-time unlock.</p><div class="cta-row"><img src="assets/app-icon.png" width="56" height="56" alt="Photo Print app icon"><a class="store" href="{STORE}" aria-label="Download Photo Print on the App Store"><img src="assets/app-store-badge.svg" width="168" height="56" alt="Download on the App Store"></a></div></aside>
+</main><footer class="site-footer"><a class="brand" href="index.html">Photo Print<span>.</span></a><p>Made by Mohamed Elatabany for iPhone &amp; iPad.</p><nav aria-label="Footer"><a href="guides.html">Guides</a><a href="tools.html">Tools</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a><a href="about.html">About</a></nav><small>No cookies or analytics. Your photos stay on your device.</small></footer></div></body></html>
+'''
+(ROOT / FILE).write_text(page)
+print('wrote', FILE)
+
+# Wire it in: guide directory (card + CollectionPage list), related lists, sitemap, llms.txt, campaign tag.
+def patch(name, old, new, count=1):
+    p = ROOT / name; s = p.read_text()
+    if new in s: return
+    assert old in s, (name, old[:60]); p.write_text(s.replace(old, new, count)); print('linked', name)
+
+card = '<div class="card"><h2><a href="check-photo-size-iphone.html">How to check a photo’s size on iPhone</a></h2><p>Find the pixel size in Photos, turn pixels into inches or cm for printing, and why 72 DPI and file size don’t matter.</p></div>'
+patch('guides.html', '<h2>Choose a printing task</h2>', '<h2>Choose a printing task</h2>' + card)
+link = '<li><a href="check-photo-size-iphone.html">How to check a photo’s size on iPhone</a></li>'
+for name in ['photo-print-resolution-ppi.html', 'photo-size-calculator.html', 'print-photo-specific-size-iphone.html']:
+    s = (ROOT / name).read_text()
+    if link in s: continue
+    m = re.search(r'<h2 id="(related-guides|related-printing-guides|next-steps|more-printing-help)">[^<]*</h2>\s*<ul>', s)
+    if m:
+        (ROOT / name).write_text(s[:m.end()] + '\n' + link + s[m.end():]); print('linked', name)
+patch('sitemap.xml', '</urlset>', f'  <url>\n    <loc>{URL}</loc>\n    <lastmod>2026-11-15</lastmod>\n  </url>\n</urlset>')
+patch('llms.txt', '## Printing guides and tools\n', '## Printing guides and tools\n- [How to check a photo’s size on iPhone](https://usephotoprint.com/check-photo-size-iphone.html): Photos → ⓘ or swipe up shows pixels (e.g. 3024 × 4032), MP and file size; pixels ÷ 300 = largest sharp print (10.08 × 13.44 in for 12 MP); the 72 DPI tag and MB are not print sizes; Mac/Windows steps; Photo Print’s See actual size.\n')
+patch('_ops/appstore_campaign.py', "TAGS={", "TAGS={'check-photo-size-iphone':'guide-photo-size',")

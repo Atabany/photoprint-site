@@ -294,3 +294,20 @@ Cleaner's site does). `_ops/update_rating.py` reads every storefront, writes `_o
 markers; `--apply` reuses the saved numbers after a page rebuild (run it after `build_tools.mjs`). Hidden below 5 ratings. It aborts
 on any failed lookup rather than publish an undercount. validate.py fails if a page with a badge lacks the line or pages disagree.
 Rebuild order is now: build_tools.mjs → add_tool_links.py → update_rating.py --apply → appstore_campaign.py → validate.py.
+
+## 2026-11-15 — photo-size guide
+
+Owner asked for one guide today (last new guide Nov 4, so the one-per-seven-days rule allows it; the same-day tools are not
+guides). Search Console, 3 months to Nov 13 (1.07K impressions, 7 clicks, position 22.7; 98 query rows) shows a cluster no guide
+answered: "what size is this image in inches", "how big is this", "what size is this", "find image size", "how many pixels is this
+image", "dimensions of a photo", "how to measure photo size", "image size in mm" (about 15 impressions). Small numbers; the choice
+is judgment informed by them, not measured volume.
+
+Published `check-photo-size-iphone.html` (campaign `guide-photo-size`, generator `_ops/add_photo_size_guide.py`, which asserts its
+arithmetic): Photos → ⓘ or swipe up for pixels, MP and file size; pixels vs file size vs print size; pixels ÷ 300/200 table for
+12/24/48 MP and a 1179 × 2556 screenshot; why 72 DPI is only a tag; Photos/Preview/Finder/Windows steps; measuring a print against
+standard sizes; Photo Print's Print quality, "How large can it print?" and "See actual size" (labels checked in
+`PhotoDetailView.swift`). Sources: Apple iPhone User Guide (photo info), Apple Preview guide (Inspector), Apple Community and the
+exiv2 tag reference for the 72 ppi default. Linked from the guide directory (card + CollectionPage), the resolution guide and the
+size calculator; sitemap, llms.txt. validate.py PASS (31 pages); rendered at 1280 px and 390 px with JavaScript off: no overflow,
+no broken images, all contents anchors resolve. Next new guide no earlier than 22 November 2026.
