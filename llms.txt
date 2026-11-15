@@ -18,6 +18,12 @@
 - [Support](https://usephotoprint.com/support.html)
 - [Privacy](https://usephotoprint.com/privacy.html)
 
+## Free browser tools
+- [Photo printing tools](https://usephotoprint.com/tools.html): index of the free tools below. They run in the browser, need no account and never upload photos.
+- [Photos per page calculator](https://usephotoprint.com/photos-per-page-calculator.html): how many photos of a size fit on 4 × 6, 5 × 7, A4, US Letter, A5, A6 or Legal paper, with margins, gaps, paper direction and a to-scale preview. Uses Photo Print's own layout rules (checked against the app's code). Examples: six 2 × 2 in or eight 35 × 45 mm (landscape sheet) on borderless 4 × 6; twenty 2 × 2 in on US Letter with ¼ in margins.
+- [Photo print quality checker](https://usephotoprint.com/photo-print-quality-checker.html): choose a photo (opened locally) or type its pixel size, pick a print size, see PPI after cropping, Photo Print's rating (Excellent ≥300, Good ≥200, Fair ≥150, Low below), what the crop removes and the largest size at 300 and 200 PPI.
+- [Photo crop calculator](https://usephotoprint.com/photo-crop-calculator.html): what 4 × 6, 5 × 7, 8 × 10, 3.5 × 5, wallet, 11 × 14, 8.5 × 11, A4 and square prints cut off a photo or a 4:3, 3:2, 16:9, 1:1 or 19.5:9 shape. A 4:3 iPhone photo loses 11.1% to a 4 × 6 print; a 3:2 photo loses none.
+
 ## Printing guides and tools
 - [How to print a photo at a specific size on iPhone](https://usephotoprint.com/print-photo-specific-size-iphone.html): The Photos app has no print-size field; set any width and height in inches, cm or mm, check A4/Letter fit (8 × 10 in fits Letter, not A4 with normal margins), choose Fill or Fit and print at 100%.
 - [How to print locket photos from iPhone at the right size](https://usephotoprint.com/print-locket-photos-iphone.html): Measure a locket insert, make a custom-size rectangular photo, print at actual size and trim by hand.

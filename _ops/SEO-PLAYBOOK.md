@@ -236,3 +236,44 @@ Checks: `validate.py` PASS (26 pages); rendered in a true 390 px iframe (headles
 for 4 URLs. Google priority-crawl requests accepted for wallet, multiple photos, calculator, 2 × 2, 35 × 45 and 4 × 6; sitemap
 resubmitted (25 discovered). The 35 × 45 and 4 × 6 guides inspected as "URL is unknown to Google", the 2 × 2 guide as discovered with
 no referring page. Next review: whether those three get indexed, and positions/CTR for the three rewritten pages after ~2 weeks.
+
+## 2026-11-15 — free browser tools
+
+Owner asked for tools on the website for SEO and new customers. Evidence for the choice: the Nov 8 Search Console record shows the
+size calculator takes most impressions (484 of 826, position 17) and the queries ask for print-size calculators, wallet dimensions,
+"how many / 4 photos on one page". Topic choice is editorial judgment from those queries, not measured keyword volume.
+
+Added (all local-only, no upload, no new network calls):
+- `tools.html` — hub (CollectionPage), linked from the header nav and footer of every page, the guide directory and the home page.
+- `photos-per-page-calculator.html` — count and to-scale SVG of one size on 4 × 6, 5 × 7, Letter, A4, A5, A6, Legal with margin,
+  gap, paper direction and turning; server-rendered tables for ID sizes (upright, no gap, as the app's ID sheet) and everyday prints.
+  Campaign `tool-per-page`.
+- `photo-print-quality-checker.html` — choose a photo (opened in the browser) or type pixels; PPI after crop, the app's rating
+  (300/200/150), what the crop removes, largest size at 300/200 PPI (whole mm, rounded down as the app does). Campaign `tool-quality`.
+- `photo-crop-calculator.html` — nine print sizes over the photo or a 4:3/3:2/16:9/1:1/19.5:9 shape, crop % and edges, PPI with a
+  real photo; crop table. Campaign `tool-crop`.
+- The size calculator now sits under Tools (breadcrumb + BreadcrumbList) and links the new tools.
+
+Parity with the app: `assets/print-math.js` is a port of `LayoutEngine` (single size), `CropMath` and `PrintQuality`.
+`node _ops/check_print_math.mjs <engine>` compares it with the app's compiled Domain code (`_ops/engine-harness/main.swift`; the
+build command is at the top of the script): PASS on 4,680 sheet layouts (every cell frame) and 2,600 quality checks, and the app's
+`SheetFiller` agrees with min(count, 50). **After any change to the app's `Domain/` layout, crop or quality code, rerun the check; if
+it fails, port the change, then `node _ops/build_tools.mjs && python3 _ops/appstore_campaign.py && python3 _ops/validate.py`.**
+The builder asserts every number quoted in the prose, so a changed engine stops the build instead of publishing stale text.
+Rebuild order for these pages: `build_tools.mjs` → `add_tool_links.py` (idempotent) → `appstore_campaign.py` → `validate.py`.
+Do not hand-edit the four generated pages.
+
+Checks: validate.py PASS (30 pages). Headless Chrome (puppeteer-core) at 1280 px and a 390 px mobile viewport: no horizontal overflow,
+no console errors on the new pages, home, guides and the size calculator; scripted interactions gave 2 × 2 on 4 × 6 = 6,
+35 × 45 on 4 × 6 = 8 (landscape), 2 × 3 on Letter = 13 / 10 with 3 mm gaps, 4 × 6 on Letter = 3, 8 × 10 on A4 refused (never shrunk),
+quality 3024 × 4032 at 4 × 6 = 672 PPI, a real JPEG through the file picker in both photo tools.
+
+Not done: a printable-ruler page (the printer test sheet already has rulers); an online ID-photo sheet maker (it would give away the
+app's core output and invite compliance claims). Live rating is 5.0 from 1 US rating (Nov 15): too few to show; add the rating with
+its count once there are enough.
+
+Independent review (reviewer agent, Nov 15) found five defects, all fixed before publishing: the quality checker lost "turn to
+match" after an ID size; the sheet calculator defaulted to no gap for everyday prints while the app uses 3 mm (now "Automatic" =
+the app's defaults, with a "with no space, N fit" hint); the crop page named the cut edges the wrong way round; PPI was floored
+while the app rounds (`PhotoDetailView`); a file that failed to open left the previous photo's size in place. A browser test of the
+UI state now lives in `_ops/check_tools_ui.mjs` (needs puppeteer-core outside the repo; command at its top): ALL PASS.
