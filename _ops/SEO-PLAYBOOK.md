@@ -311,3 +311,6 @@ standard sizes; Photo Print's Print quality, "How large can it print?" and "See 
 exiv2 tag reference for the 72 ppi default. Linked from the guide directory (card + CollectionPage), the resolution guide and the
 size calculator; sitemap, llms.txt. validate.py PASS (31 pages); rendered at 1280 px and 390 px with JavaScript off: no overflow,
 no broken images, all contents anchors resolve. Next new guide no earlier than 22 November 2026.
+Published as `bd42f9d` (rating `c74a68c`): both deploys succeeded, 11 changed resources served byte-for-byte, the live guide renders
+with no overflow at 1280/390 px with JavaScript off. IndexNow HTTP 200 for 6 URLs. Google: the guide inspected as "URL is unknown to
+Google"; indexing request accepted into the priority crawl queue.
