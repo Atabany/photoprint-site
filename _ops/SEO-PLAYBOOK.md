@@ -277,3 +277,9 @@ match" after an ID size; the sheet calculator defaulted to no gap for everyday p
 the app's defaults, with a "with no space, N fit" hint); the crop page named the cut edges the wrong way round; PPI was floored
 while the app rounds (`PhotoDetailView`); a file that failed to open left the previous photo's size in place. A browser test of the
 UI state now lives in `_ops/check_tools_ui.mjs` (needs puppeteer-core outside the repo; command at its top): ALL PASS.
+
+Published as `6c9c48b`: Validate website and Pages deployment succeeded; all 13 changed resources served byte-for-byte; the UI test
+passes against the live site. IndexNow HTTP 200 for 10 URLs (received, not proof of indexing). Search Console (Nov 15): the four new
+URLs inspected as "URL is unknown to Google"; indexing requests accepted into the priority crawl queue for all four; sitemap
+resubmitted (29 discovered). Overview at the time: 12 indexed, 17 not indexed. Next review: whether the tools get indexed and which
+queries reach them, after about two weeks.
