@@ -314,3 +314,13 @@ no broken images, all contents anchors resolve. Next new guide no earlier than 2
 Published as `bd42f9d` (rating `c74a68c`): both deploys succeeded, 11 changed resources served byte-for-byte, the live guide renders
 with no overflow at 1280/390 px with JavaScript off. IndexNow HTTP 200 for 6 URLs. Google: the guide inspected as "URL is unknown to
 Google"; indexing request accepted into the priority crawl queue.
+
+## 2026-11-19 — scheduled review; content skipped
+
+No new guide: `check-photo-size-iphone.html` was published November 15, so the rolling seven-day allowance next opens November 22. Existing wallet/multiple-photo/calculator pages were recently improved and four new tools published; no distinct additional content need established in this review. No public content changed, no deployment or IndexNow submission performed.
+
+Read live in the owner's already signed-in Chrome: App Store Connect Photo Print campaigns, October 19–November 17, UTC reporting, `guide-4x6`: 5 impressions and **3 Total Downloads**. Proceeds and opt-in sessions display unavailable dashes; do not interpret them as zero. Total Downloads is not First-Time Downloads and does not establish sales or new customers. This is a verified website campaign observation, not a general attribution claim.
+
+Search Console Web report displayed September 30–November 17: 8 clicks, rounded 1.3K impressions, 0.6% CTR, average position 22.9; last update three hours ago. Top visible queries include multiple-pictures-on-one-page (20 impressions), print-size-calculator (16), wallet-size-photos (11). Do not compare its totals directly with earlier 28-day windows. A requested 28-day filter was not verified in the displayed chart, so no 28-day result recorded. No fresh Bing indexing outcome verified.
+
+Home, new photo-size guide, tools directory, size calculator, robots, sitemap and llms all returned HTTPS 200. Static validator PASS: 31 pages; git diff --check clean. All-storefront rating refresh was attempted but interrupted without a completion result; tracked files remain unchanged. Existing rating record remains 5.0/8, checked November 15, not reverified today. Browser runtime became unavailable after the interruption. Next: complete the atomic rating refresh and check tool indexing/query results; assess a distinct guide on/after November 22. No ads, prices, releases, outreach, agreements or OAuth changed. Operational record saved locally; live site unchanged.
