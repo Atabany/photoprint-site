@@ -8,7 +8,7 @@ Updated 2026-10-03. Goal: increase qualified downloads and proceeds, judged by A
 - iPhone/iPad, iOS/iPadOS 17+. Exact physical photo sizes in in/cm/mm; A4, Letter, 4×6 paper; AirPrint and PDF.
 - Free download: first completed output, three saved layouts. Pro: one-time purchase, unlimited output/layouts and saved page setups. Regional prices change; show current price in app instead of hard-coding a global amount.
 - Photos are processed locally. Apple/RevenueCat handle purchases and Settings may query Apple's catalogue for other apps. Keep policy source in the app repo synchronized through tools/build_site.py.
-- The app does not validate official passport/visa/ID requirements. Never claim acceptance, government approval, unreleased background features, online printing services or Android support.
+- The app does not validate official passport/visa/ID requirements. Never claim acceptance, government approval, unreleased background features, or online printing services. Android is live on Google Play since 2026-11-26 (1.13.0, Android 8.0+); the guides stay iPhone-first, and a feature is claimed for Android only when the Android app has it.
 - No fabricated reviews, ratings, endorsements, rankings or urgency. Product facts must match code/live listing. Software offer price 0 is the download price, not an assertion that Pro is free.
 
 ## Search and AI discovery

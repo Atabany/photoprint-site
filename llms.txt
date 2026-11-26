@@ -1,14 +1,14 @@
 # Photo Print: Size & Layout
 
-> iPhone and iPad app for printing photos at exact physical sizes. Official App Store listing: https://apps.apple.com/app/id6808903369
+> iPhone, iPad and Android app for printing photos at exact physical sizes. Official App Store listing: https://apps.apple.com/app/id6808903369 · Google Play listing: https://play.google.com/store/apps/details?id=com.atabany.photoprint
 
 ## Product facts
 - App Store rating: 5.0 average from 8 ratings worldwide (checked 15 November 2026).
-- iOS / iPadOS 17 or later. AirPrint, PDF, or 4 × 6 JPEG sheet export for a photo lab or store kiosk. Photo Print creates the file; it does not place print orders. Lab charges are separate.
+- iOS / iPadOS 17 or later, and Android 8.0 or later (Google Play, since November 2026). AirPrint (Android: the system print service), PDF, or 4 × 6 JPEG sheet export for a photo lab or store kiosk. Photo Print creates the file; it does not place print orders. Lab charges are separate.
 - Photo sizes in inches, centimetres and millimetres. A4, US Letter and 4 × 6 paper.
 - Photos that cannot fit are reported rather than shrunk.
 - First completed output and three saved layouts included. Optional Pro (weekly or yearly subscription, or a one-time lifetime unlock) for unlimited outputs, unlimited layouts and saved page setups. Regional prices are shown in the app.
-- Photos stay on the device. Purchases use Apple / RevenueCat; the other-apps section can query Apple's catalogue.
+- Photos stay on the device. Purchases use Apple or Google Play, with RevenueCat; the other-apps section can query Apple's catalogue.
 - ID and passport sizing and a head-size guide; no official compliance verification or acceptance guarantee.
 
 - Free printer test-sheet PDFs are available on the website. The free in-app printer check is available now in Settings → Check your printer’s size.

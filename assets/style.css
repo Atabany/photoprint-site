@@ -13,3 +13,6 @@ figure{margin:0}.motion-art{padding:0;display:block;min-height:0;overflow:hidden
 .file-pick input[type=file]{min-height:0;padding:0;border:0;overflow:hidden;clip-path:inset(50%)}.file-pick button{margin:0;background:none;color:var(--accent);border:1px solid var(--accent);min-height:48px;padding:10px 16px}
 .crop-grid canvas{width:auto;max-width:100%;margin:auto}.calculator legend{padding:0}.sheet-preview+.fine,.crop-preview+.fine,.crop-grid+.fine{margin-top:16px}
 .app-rating{font-size:.92rem;color:var(--ink);margin:4px 0 10px}.app-rating .stars{color:#b07d12;letter-spacing:2px;margin-right:4px}.final-cta .app-rating{margin-top:8px}
+.store+.store{margin-left:12px}.cta-row .store+.store{margin-left:0}
+@media(max-width:420px){.store:has(+.store) img,.store+.store img{height:48px}.cta-row:has(.store+.store){gap:12px}}
+@media(max-width:420px){.cta-row:has(.store+.store)>img{display:none}.pricing .store:has(+.store) img,.pricing .store+.store img{height:40px}.pricing .store+.store{margin-left:8px}}
