@@ -6,7 +6,7 @@ let enabled = !reduced.matches && !navigator.connection?.saveData;
 let visible = false;
 function sync() {
   if (enabled && visible && !document.hidden) {
-    film.play().catch(() => { enabled = false; button.textContent = 'Play animation'; });
+    film.play().catch(() => { enabled = false; button.textContent = 'Play animation'; button.setAttribute('aria-pressed', 'false'); });
   } else film.pause();
   button.textContent = enabled ? 'Pause animation' : 'Play animation';
   button.setAttribute('aria-pressed', String(enabled));
