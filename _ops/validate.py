@@ -92,7 +92,14 @@ if rating_file.exists():
   if t.count('<!--app-rating-->')!=len(re.findall(r'<a class="store" href="https://apps',t)) and f.name!='index.html':errors.append(f'{f.name}: one rating line per App Store badge expected')
 # Owner rule (2026-11-26): every visitor sees both store badges; data-os may order them, never hide one.
 css=(ROOT/'assets/style.css').read_text()
-if any(re.search(r'html\[data-os=[a-z]+\][^,]*(\.store-play|:not\(\.store-play\))',sel) for sel,body in re.findall(r'([^{}]+)\{([^{}]*)\}',css) if re.search(r'display:\s*none',body) for sel in sel.split(',')):errors.append('assets/style.css: a store badge is hidden by device (data-os); every visitor sees both')
+def hides_a_badge(sel):
+ # A selector under html[data-os=…] whose last part is a store badge or a bare link. Desktop's header badges are the one
+ # exception: both are hidden together, and the "Get the app" popover shows both instead.
+ sel=' '.join(sel.split())
+ if not re.search(r'html\[data-os=["\']?[a-z]+["\']?\]',sel) or sel=='html[data-os=desktop] .get-app>.nav-store':return False
+ last=re.split(r'\s*[\s>+~]\s*',sel.strip())[-1]
+ return bool(re.search(r'\.(store|nav-store|store-play)(?![\w-])|:not\(\.store-play\)',last) or re.match(r'a(?![\w-])',last))
+if any(hides_a_badge(sel) for sels,body in re.findall(r'([^{}]+)\{([^{}]*)\}',css) if re.search(r'display:\s*none|visibility:\s*hidden',body) for sel in sels.split(',')):errors.append('assets/style.css: a store badge is hidden by device (data-os); every visitor sees both')
 # Store links for every device (_ops/get_app.py): the OS flag, the script, the header group, a Google Play badge
 # beside every App Store badge, and the QR code for computers.
 for f in ROOT.glob('*.html'):

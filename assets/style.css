@@ -16,7 +16,7 @@ figure{margin:0}.motion-art{padding:0;display:block;min-height:0;overflow:hidden
 /* Every visitor sees both store badges (owner rule, 2026-11-26). <head> sets html[data-os=ios|android|desktop]: on Android,
    Google Play comes first where the badges sit in a row; computers get the QR popover in the header and QR cards. */
 .store:has(+.store-play){margin-right:12px}.cta-row .store{margin-right:0}
-html[data-os=android] .cta-row .store-play,html[data-os=android] .get-app .store-play{order:-1}
+html[data-os=android] .cta-row .store-play,html[data-os=android] .get-app .store-play{order:-1}html[data-os=android] .cta-row>img{order:-2}.get-app .nav-store{display:flex;align-items:center;min-height:44px}
 .get-app{display:flex;align-items:center;gap:10px;margin-left:26px}.site-header nav{margin-left:auto}
 .qr-pop,.qr-card{display:none}html[data-os=desktop] .get-app>.nav-store{display:none}html[data-os=desktop] .qr-pop{display:block;position:relative}
 .qr-pop summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;background:var(--ink);color:var(--white);font-size:.88rem;font-weight:600;white-space:nowrap}
@@ -53,3 +53,4 @@ table{font-size:.86rem}td,th{padding:10px 7px}.section{padding:46px 0}}
 @media(max-width:550px){.hero .eyebrow{display:none}}
 @media(prefers-reduced-motion:reduce){.hero h1 em::after{animation:none}}
 @media(max-width:800px){.hero .cta-row{margin-top:0}.hero .motion-art .caption{display:none}.hero .motion-toggle{width:44px;height:44px;padding:0;border-radius:50%;font-size:0;display:grid;place-items:center;background:rgba(255,255,255,.85)}.hero .motion-toggle::before{content:"";width:0;height:0;border-style:solid;border-width:7px 0 7px 11px;border-color:transparent transparent transparent var(--ink);margin-left:3px}.hero .motion-toggle[aria-pressed=true]::before{width:10px;height:12px;border-width:0 3px;border-color:var(--ink);margin:0;box-sizing:border-box}}
+@media(max-width:550px){.photo-card{padding:24px 16px}.photo-card img{max-width:min(240px,100%);height:auto}}

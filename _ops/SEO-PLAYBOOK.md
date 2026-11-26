@@ -335,7 +335,7 @@ overflow, no script errors, QR codes decode to `https://usephotoprint.com/get/?c
 (touch Mac UA) and Android to their stores. Measure with App Store campaigns (`*-bar`, `website-qr-*`) and Play Console's
 acquisition report (`utm_campaign`) over comparable windows; no uplift assumed.
 Same day, owner rule: **every visitor sees both store badges regardless of device** (the device-matched badges above were
-replaced). `data-os` now only orders them (Google Play first on Android) and gives computers the QR code. The home page on
+replaced). `data-os` now only orders them (Google Play first on Android where the badges sit in a flex row; guide asides keep App Store first) and gives computers the QR code. The home page on
 phones also opens with the print-studio film under the headline (720 px copy), and the site went live before Google had
 approved the Android release, at the owner's word.
 
