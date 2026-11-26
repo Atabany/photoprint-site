@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Get Photo Print</title><meta name="robots" content="noindex"><meta name="description" content="Download Photo Print for iPhone, iPad or Android."><link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link rel="stylesheet" href="/assets/style.css?v=2026112602"><script>
 // Opened from the QR codes on the website: sends a phone straight to its own store.
-(function(){var n=navigator,u=n.userAgent,m=/[?&]c=([a-z0-9-]{1,24})/.exec(location.search),c=m?m[1]:'qr';
+(function(){var n=navigator,u=n.userAgent,m=/[?&]c=([a-z0-9-]{1,22})/.exec(location.search),c=m?m[1]:'qr';
 var ios=/iPhone|iPad|iPod/.test(u)||(/Macintosh/.test(u)&&n.maxTouchPoints>1),android=/Android/.test(u);
 if(ios)location.replace('https://apps.apple.com/app/apple-store/id6808903369?pt=127826363&mt=8&ct=website-'+c);
 else if(android)location.replace('https://play.google.com/store/apps/details?id=com.atabany.photoprint&utm_source=usephotoprint&utm_campaign=website-'+c);})();

@@ -32,11 +32,11 @@ html[data-os=ios] .store-play,html[data-os=android] .store:not(.store-play),html
 .app-bar.is-shown{transform:none;visibility:visible;transition:transform .3s ease}
 .app-bar img{border-radius:11px;flex:none}.app-bar-text{flex:1;min-width:0;line-height:1.25}.app-bar-text strong{display:block;font-size:.98rem}.app-bar-text span{display:block;font-size:.8rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .app-bar-get{flex:none;display:inline-flex;align-items:center;min-height:44px;padding:0 24px;border-radius:999px;background:var(--accent);color:var(--white);font-weight:700;font-size:1rem;text-decoration:none}
-.app-bar-close{flex:none;width:36px;height:44px;padding:0;border:0;background:none;color:var(--muted);font-size:1.5rem;line-height:1;cursor:pointer}
+.app-bar-close{flex:none;width:44px;height:44px;padding:0;border:0;background:none;color:var(--muted);font-size:1.5rem;line-height:1;cursor:pointer}
 html.has-app-bar .site-footer{padding-bottom:110px}
 @media(prefers-reduced-motion:reduce){.app-bar,.app-bar.is-shown{transition:none}}
 /* Phones: one compact header (brand and the store badge, then the menu). */
-@media(max-width:550px){.site-header{display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 12px;padding:12px 0 2px;min-height:0}.site-header .brand{grid-column:1;grid-row:1}.site-header .get-app{grid-column:2;grid-row:1;margin:0}.site-header nav{grid-column:1/-1;grid-row:2;width:100%;margin:0;justify-content:flex-start;gap:24px}.get-app .nav-store img{height:36px}html:not([data-os]) .get-app .store-play{display:none}.wrap .site-header{margin-bottom:26px}
+@media(max-width:550px){.site-header{display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 12px;padding:12px 0 2px;min-height:0}.site-header .brand{grid-column:1;grid-row:1}.site-header .get-app{grid-column:2;grid-row:1;margin:0}.site-header nav{grid-column:1/-1;grid-row:2;width:100%;margin:0;justify-content:flex-start;gap:24px}.get-app .nav-store{display:flex;align-items:center;min-height:44px}.get-app .nav-store img{height:36px}html:not([data-os]) .get-app .store-play{display:none}.wrap .site-header{margin-bottom:26px}
 html:not([data-os]) .store:has(+.store-play) img,html:not([data-os]) .store-play img{height:48px}html:not([data-os]) .cta-row:has(.store-play){gap:12px}html:not([data-os]) .cta-row:has(.store-play)>img{display:none}
 table{font-size:.86rem}td,th{padding:10px 7px}.section{padding:46px 0}}
 /* Wide tables show a shadow on the side that scrolls. */
