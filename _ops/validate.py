@@ -90,6 +90,9 @@ if rating_file.exists():
   t=f.read_text()
   if 'class="store"' in t and '<!--app-rating-->' not in t:errors.append(f'{f.name}: App Store badge without the rating line; run python3 _ops/update_rating.py --apply')
   if t.count('<!--app-rating-->')!=len(re.findall(r'<a class="store" href="https://apps',t)) and f.name!='index.html':errors.append(f'{f.name}: one rating line per App Store badge expected')
+# Owner rule (2026-11-26): every visitor sees both store badges; data-os may order them, never hide one.
+css=(ROOT/'assets/style.css').read_text()
+if any(re.search(r'html\[data-os=[a-z]+\][^,]*(\.store-play|:not\(\.store-play\))',sel) for sel,body in re.findall(r'([^{}]+)\{([^{}]*)\}',css) if re.search(r'display:\s*none',body) for sel in sel.split(',')):errors.append('assets/style.css: a store badge is hidden by device (data-os); every visitor sees both')
 # Store links for every device (_ops/get_app.py): the OS flag, the script, the header group, a Google Play badge
 # beside every App Store badge, and the QR code for computers.
 for f in ROOT.glob('*.html'):

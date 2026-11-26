@@ -1,6 +1,6 @@
-// Store links that fit the visitor's device, and a download bar on phones.
-// The <head> of every page sets <html data-os="ios|android|desktop"> before the first paint, so CSS
-// already shows the right badges; this script only adds behaviour. Without JavaScript both badges show.
+// The desktop QR popover, and a download bar with both store badges on phones.
+// The <head> of every page sets <html data-os="ios|android|desktop"> before the first paint; every visitor sees both
+// store badges, and CSS puts Google Play first on Android.
 (function () {
   var html = document.documentElement;
   var os = html.getAttribute('data-os');
@@ -32,12 +32,15 @@
   bar.className = 'app-bar';
   bar.setAttribute('role', 'region');
   bar.setAttribute('aria-label', 'Download Photo Print');
+  // Both stores, always (owner rule): the visitor's own store comes first through CSS.
   var icon = document.querySelector('.brand img');
+  var base = icon ? icon.getAttribute('src').replace(/app-icon\.png$/, '') : 'assets/';
   bar.innerHTML =
     (icon ? '<img src="' + icon.getAttribute('src') + '" width="44" height="44" alt="">' : '') +
-    '<span class="app-bar-text"><strong>Photo Print</strong><span>Exact-size printing</span></span>' +
-    '<a class="app-bar-get" href="' + (os === 'ios' ? APPLE : PLAY) + ct + '" aria-label="Get Photo Print on ' +
-    (os === 'ios' ? 'the App Store' : 'Google Play') + '">Get</a>' +
+    '<span class="app-bar-stores">' +
+    '<a href="' + APPLE + ct + '" aria-label="Download Photo Print on the App Store"><img src="' + base + 'app-store-badge.svg" width="120" height="40" alt="Download on the App Store"></a>' +
+    '<a class="store-play" href="' + PLAY + ct + '" aria-label="Get Photo Print on Google Play"><img src="' + base + 'google-play-badge.svg" width="135" height="40" alt="Get it on Google Play"></a>' +
+    '</span>' +
     '<button type="button" class="app-bar-close" aria-label="Hide">×</button>';
   document.body.appendChild(bar);
 

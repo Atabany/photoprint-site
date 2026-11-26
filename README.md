@@ -12,10 +12,13 @@ Validate: `python3 _ops/validate.py`. Preview: `python3 -m http.server 8766`. Pu
 
 ## Store links for every device (since 26 November 2026)
 
-- `<head>` of every page sets `<html data-os="ios|android|desktop">` before the first paint; `assets/style.css` then shows
-  only the App Store badge on iPhone and iPad, only Google Play on Android, and both on a computer (both without JavaScript).
-- Phones: a compact header (brand and the store badge, then the menu) and a download bar (`assets/get-app.js`) once the
-  reader is past the first screen, hidden while a badge or the footer is on screen; closing it lasts for the visit.
+- **Every visitor sees both store badges, App Store and Google Play, on every device** (owner rule, 26 November 2026: "people
+  see both regardless"). Never hide one by device. `<head>` of every page sets `<html data-os="ios|android|desktop">` before
+  the first paint, and it only changes the order (Google Play first on Android where the badges sit in a row) and the
+  computer-only QR code. `_ops/validate.py` fails if `assets/style.css` hides a store badge by `data-os`.
+- Phones: a header of three short rows (brand, both badges, the menu) and a download bar with both badges
+  (`assets/get-app.js`) once the reader is past the first screen, hidden while a badge or the footer is on screen; closing
+  it lasts for the visit.
 - Computers: "Get the app" in the header opens a QR code; the home hero, the final call to action and every guide/tool
   call to action show a "Scan to download" card. The QR codes (`assets/qr-nav|home|page.svg`, made with Python `segno`)
   open `get/` (noindex), which sends an iPhone or iPad to the App Store and an Android phone to Google Play.

@@ -17,8 +17,8 @@ from pathlib import Path
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-CSS_VERSION = '2026112603'
-JS_VERSION = '2026112602'
+CSS_VERSION = '2026112604'
+JS_VERSION = '2026112604'
 PLAY = 'https://play.google.com/store/apps/details?id=com.atabany.photoprint&amp;utm_source=usephotoprint&amp;utm_campaign='
 APPLE = 'https://apps.apple.com/app/apple-store/id6808903369?pt=127826363&amp;ct={ct}&amp;mt=8'
 OS_SCRIPT = ('<script>(function(d,n){var u=n.userAgent,o=/iPhone|iPad|iPod/.test(u)||(/Macintosh/.test(u)&&n.maxTouchPoints>1)'
