@@ -89,6 +89,24 @@ if rating_file.exists():
  for f in ROOT.glob('*.html'):
   t=f.read_text()
   if 'class="store"' in t and '<!--app-rating-->' not in t:errors.append(f'{f.name}: App Store badge without the rating line; run python3 _ops/update_rating.py --apply')
+  if t.count('<!--app-rating-->')!=len(re.findall(r'<a class="store" href="https://apps',t)) and f.name!='index.html':errors.append(f'{f.name}: one rating line per App Store badge expected')
+# Store links for every device (_ops/get_app.py): the OS flag, the script, the header group, a Google Play badge
+# beside every App Store badge, and the QR code for computers.
+for f in ROOT.glob('*.html'):
+ t=f.read_text();fix='; run python3 _ops/get_app.py'
+ if "setAttribute('data-os'" not in t:errors.append(f'{f.name}: no data-os flag in <head>'+fix)
+ if 'assets/get-app.js' not in t:errors.append(f'{f.name}: assets/get-app.js not loaded'+fix)
+ if 'class="get-app"' not in t:errors.append(f'{f.name}: header has no store group'+fix)
+ if len(re.findall(r'<a class="store" href="https://apps',t))!=len(re.findall(r'<a class="store store-play" href="https://play\.google\.com/',t)):errors.append(f'{f.name}: every App Store badge needs its Google Play badge'+fix)
+ if '<aside class="guide-cta">' in t and 'class="qr-card"' not in t:errors.append(f'{f.name}: call to action without the QR card'+fix)
+ if 'for iPhone &amp; iPad.' in t:errors.append(f'{f.name}: footer still says iPhone & iPad only'+fix)
+get=ROOT/'get/index.html'
+if not get.exists():errors.append('get/index.html (the QR codes open it) is missing')
+else:
+ for a in re.findall(r'(?:src|href)="(/assets/[^"?]+)',get.read_text()):
+  if not (ROOT/a.lstrip('/')).exists():errors.append(f'get/index.html: missing {a}')
+for spot in ['nav','home','page']:
+ if not (ROOT/f'assets/qr-{spot}.svg').exists():errors.append(f'assets/qr-{spot}.svg missing')
 if errors:
  print('\n'.join(errors));raise SystemExit(1)
 print(f'PASS: {len(pages)} pages; links, anchors, local assets, canonical URLs, descriptions, JSON-LD, sitemap and llms.txt')

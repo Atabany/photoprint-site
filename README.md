@@ -10,6 +10,21 @@ Static GitHub Pages site for Photo Print: Size & Layout. Production: https://use
 
 Validate: `python3 _ops/validate.py`. Preview: `python3 -m http.server 8766`. Publish: push this repo's main branch; GitHub Pages serves the root. No npm/build dependencies, cookies, external asset requests or analytics.
 
+## Store links for every device (since 26 November 2026)
+
+- `<head>` of every page sets `<html data-os="ios|android|desktop">` before the first paint; `assets/style.css` then shows
+  only the App Store badge on iPhone and iPad, only Google Play on Android, and both on a computer (both without JavaScript).
+- Phones: a compact header (brand and the store badge, then the menu) and a download bar (`assets/get-app.js`) once the
+  reader is past the first screen, hidden while a badge or the footer is on screen; closing it lasts for the visit.
+- Computers: "Get the app" in the header opens a QR code; the home hero, the final call to action and every guide/tool
+  call to action show a "Scan to download" card. The QR codes (`assets/qr-nav|home|page.svg`, made with Python `segno`)
+  open `get/` (noindex), which sends an iPhone or iPad to the App Store and an Android phone to Google Play.
+- Campaign names: App Store `ct` and Google Play `utm_campaign` are the same per spot. The bar adds `-bar` to the page's
+  own name, the header popover `-pop`, and the QR codes arrive as `website-qr-nav|home|page`.
+- **After any page generator** (`_ops/build_guides.py`, `add_*.py`, `build_comparison.py`, `build_tools.mjs`, and the app
+  repo's `tools/build_site.py` for privacy.html) **run `python3 _ops/get_app.py`**: it adds all of the above and is safe to
+  run again. `_ops/validate.py` fails when a page is missing any of it.
+
 ## Asset sources
 
 App icon: PhotoPrint/Resources/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png.

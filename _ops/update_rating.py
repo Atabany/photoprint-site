@@ -61,6 +61,15 @@ def render(data):
     return line, fact, schema
 
 
+PLAY_BADGE = re.compile(r'\s*<a class="store store-play" [^>]*>.*?</a>', re.S)
+
+
+def after_badges(s, pos):
+    """Where the rating line belongs after an App Store badge: past the Google Play badge beside it."""
+    m = PLAY_BADGE.match(s, pos)
+    return m.end() if m else pos
+
+
 def apply(data):
     line, fact, schema = render(data)
     block = f'<!--app-rating-->{line}<!--/app-rating-->'
@@ -76,14 +85,17 @@ def apply(data):
             def mark_link(m):
                 before = s[:m.start()]
                 in_row = before.rfind('<div class="cta-row">') > before.rfind('</div>')
-                tail = s[m.end():m.end() + 20]
-                return m.group(0) if in_row or tail.startswith('<!--app-rating-->') else m.group(0) + block
-            s = re.sub(r'<a class="store" [^>]*>.*?</a>', mark_link, s, flags=re.S)
+                if in_row or s.startswith('<!--app-rating-->', m.end()):
+                    return m.group(0)
+                return m.group(0) + block
+            # The App Store badge together with the Google Play badge beside it.
+            s = re.sub(r'<a class="store" [^>]*>.*?</a>(?:\s*<a class="store store-play" [^>]*>.*?</a>)?', mark_link, s, flags=re.S)
         if page.name == 'index.html':
             # The final call to action: right after its badge link, once.
             m = re.search(r'<section class="final-cta">.*?<a class="store" [^>]*>.*?</a>', s, flags=re.S)
-            if m and not s.startswith('<!--app-rating-->', m.end()):
-                s = s[:m.end()] + block + s[m.end():]
+            end = after_badges(s, m.end()) if m else 0
+            if m and not s.startswith('<!--app-rating-->', end):
+                s = s[:end] + block + s[end:]
         s = re.sub(r'<!--app-rating-->.*?<!--/app-rating-->', lambda m: block, s, flags=re.S)
         if page.name == 'about.html':
             row = f'<tr><th scope="row">App Store rating</th><td><!--app-rating-fact-->{fact}<!--/app-rating-fact--></td></tr>'

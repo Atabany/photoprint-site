@@ -324,3 +324,14 @@ Read live in the owner's already signed-in Chrome: App Store Connect Photo Print
 Search Console Web report displayed September 30–November 17: 8 clicks, rounded 1.3K impressions, 0.6% CTR, average position 22.9; last update three hours ago. Top visible queries include multiple-pictures-on-one-page (20 impressions), print-size-calculator (16), wallet-size-photos (11). Do not compare its totals directly with earlier 28-day windows. A requested 28-day filter was not verified in the displayed chart, so no 28-day result recorded. No fresh Bing indexing outcome verified.
 
 Home, new photo-size guide, tools directory, size calculator, robots, sitemap and llms all returned HTTPS 200. Static validator PASS: 31 pages; git diff --check clean. All-storefront rating refresh was attempted but interrupted without a completion result; tracked files remain unchanged. Existing rating record remains 5.0/8, checked November 15, not reverified today. Browser runtime became unavailable after the interruption. Next: complete the atomic rating refresh and check tool indexing/query results; assess a distinct guide on/after November 22. No ads, prices, releases, outreach, agreements or OAuth changed. Operational record saved locally; live site unchanged.
+
+## 2026-11-26: Google Play and mobile-first store links
+
+Android 1.13.0 went to production worldwide. The site now shows the store that fits the device (App Store on iPhone/iPad,
+Google Play on Android, both plus a QR code on computers), a compact phone header, a download bar on phones, a swipeable
+row of app screens on the home page, and scroll shadows on wide tables. Mechanics and campaign names: README, "Store links
+for every device". Checked in headless Chrome as iPhone (375 px), Android (412 px) and desktop (1280 px): no horizontal
+overflow, no script errors, QR codes decode to `https://usephotoprint.com/get/?c=qr-…`, and `get/` sends iPhone, iPad
+(touch Mac UA) and Android to their stores. Measure with App Store campaigns (`*-bar`, `website-qr-*`) and Play Console's
+acquisition report (`utm_campaign`) over comparable windows; no uplift assumed.
+
